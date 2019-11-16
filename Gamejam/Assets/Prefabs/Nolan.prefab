@@ -1650,6 +1650,7 @@ GameObject:
   - component: {fileID: 5669609890758226207}
   - component: {fileID: 5669609890758226401}
   - component: {fileID: 5669609890758226205}
+  - component: {fileID: 4581225370889239201}
   m_Layer: 0
   m_Name: Nolan
   m_TagString: Untagged
@@ -1691,6 +1692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterType: 1
+  Icon: {fileID: 0}
   Stats:
     allStats:
       m_keys: 0100000000000000020000000300000004000000
@@ -1698,7 +1700,8 @@ MonoBehaviour:
   HealthController: {fileID: 5669609890758226205}
   AnimationController: {fileID: 5669609891655062456}
   WeaponController: {fileID: 5669609890758226401}
-  StatusEffectsController: {fileID: 0}
+  StatusEffectsController: {fileID: 5669609890758226207}
+  UiController: {fileID: 4581225370889239201}
   AudioSource: {fileID: 0}
 --- !u!95 &5669609890750792234
 Animator:
@@ -1785,7 +1788,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2060700018aa5e7468764a73b9501147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StatusEffectsGrid: {fileID: 482064707375772360}
 --- !u!114 &5669609890758226401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1813,8 +1815,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8f2f3f65d5aa541873f3d66c1de91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4581225370889239201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669609890758226402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e90ea265afbdf41aa79b9429785e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 5669609890758226206}
   healthSlider: {fileID: 3623869719829822259}
-  grid: {fileID: 1025008218660814111}
+  healthGrid: {fileID: 1025008218660814111}
+  effectsContainer: {fileID: 482064707375772360}
 --- !u!1 &5669609890758226404
 GameObject:
   m_ObjectHideFlags: 0
@@ -2587,56 +2603,6 @@ PrefabInstance:
     - target: {fileID: 3637316178984367644, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.99682814
-      objectReference: {fileID: 0}
-    - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.079584606
-      objectReference: {fileID: 0}
-    - target: {fileID: 3577716797611266843, guid: ad9e04114a0bb2f4987c589265c3f564,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3577716797611266843, guid: ad9e04114a0bb2f4987c589265c3f564,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5635806304139532696, guid: ad9e04114a0bb2f4987c589265c3f564,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5635806304139532696, guid: ad9e04114a0bb2f4987c589265c3f564,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5635806304139532696, guid: ad9e04114a0bb2f4987c589265c3f564,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5635806304139532696, guid: ad9e04114a0bb2f4987c589265c3f564,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5635806304139532696, guid: ad9e04114a0bb2f4987c589265c3f564,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5635806304139532696, guid: ad9e04114a0bb2f4987c589265c3f564,
-        type: 3}
-      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

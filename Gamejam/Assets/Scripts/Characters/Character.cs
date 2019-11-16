@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Characters.Controllers;
 using LifelongAdventure.Creatures.Data;
 using UnityEngine;
 
@@ -8,12 +9,15 @@ public class Character : MonoBehaviour
     public static Dictionary<CharType, List<Character>> Characters = new Dictionary<CharType, List<Character>>();
 
     public CharType CharacterType;
+    public Sprite Icon;
+
     public CreatureStats Stats;
 
     public HealthController HealthController;
     public CharacterAnimationController AnimationController;
     public WeaponController WeaponController;
     public StatusEffectsController StatusEffectsController;
+    public UiController UiController;
     public AudioSource AudioSource;
 
     [NonSerialized]

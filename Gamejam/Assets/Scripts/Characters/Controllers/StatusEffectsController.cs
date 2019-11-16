@@ -7,9 +7,6 @@ using UnityEngine.UI;
 public class StatusEffectsController : MonoBehaviour
 {
     [SerializeField]
-    private Transform StatusEffectsGrid;
-
-    [SerializeField]
     private List<StatusEffectBase> StatusEffects;
 
     private Character character;
@@ -52,11 +49,7 @@ public class StatusEffectsController : MonoBehaviour
         StatusEffects.Add(statusEffect);
         statusEffect.character = character;
 
-        var prototype = StatusEffectsGrid.GetChild(0);
-        var effectHolder = Instantiate(prototype.gameObject, StatusEffectsGrid);
-        effectHolder.GetComponent<StatusEffectUI>().SetUp(statusEffect, false);
-        effectHolder.name = statusEffect.InstanceId.ToString();
-        effectHolder.SetActive(true);
+        character.UiController.AddStatusEffect(statusEffect);
     }
 
     private void RemoveStatusEffect(StatusEffectBase statusEffect)
@@ -64,14 +57,6 @@ public class StatusEffectsController : MonoBehaviour
         statusEffect.Remove();
         StatusEffects.Remove(statusEffect);
 
-        var childCount = StatusEffectsGrid.childCount;
-        for (int i = 0; i < childCount; i++)
-        {
-            if (StatusEffectsGrid.GetChild(i).name.Equals(statusEffect.InstanceId.ToString()))
-            {
-                Destroy(StatusEffectsGrid.GetChild(i));
-                return;
-            }
-        }
+        character.UiController.RemoveStatusEffect(statusEffect);
     }
 }
