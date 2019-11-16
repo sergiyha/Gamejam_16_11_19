@@ -14,16 +14,20 @@ public class PlayerBrain : MonoBehaviour
 		StartCoroutine(CheckAction());
 	}
 
+	private bool _melleeAttakingNow;
+	private bool _rangeAttakingNow;
+
 	private IEnumerator CheckAction()
 	{
 		while (true)
 		{
+			yield return null;
 			List<Character> enemies = null;
 			if (!Character.Characters.TryGetValue(Character.CharType.Bot, out enemies)) continue;
 
 			var meleDistance = _playerController.GetMeleeDistance();
 			var rangeDistance = _playerController.GetRangeDistance();
-			yield return null;
+
 
 			for (int i = 0; i < enemies.Count; i++)
 			{
@@ -31,12 +35,28 @@ public class PlayerBrain : MonoBehaviour
 				var distanceToEnemy = Vector3.Distance(this.transform.position, enemy.transform.position);
 				if (distanceToEnemy <= meleDistance)
 				{
-					_playerController.OnStartMeleeAttack(enemy);
+					if (!_melleeAttakingNow)
+					{
+						_melleeAttakingNow = true;
+						_playerController.OnStartMeleeAttack(enemy);
+					}
+				}
+				else
+				{
+					_melleeAttakingNow = false;
 				}
 
 				if (distanceToEnemy <= rangeDistance)
 				{
-					_playerController.OnStartRangeAttack(enemy);
+					if (!_rangeAttakingNow)
+					{
+						_rangeAttakingNow = true;
+						_playerController.OnStartRangeAttack(enemy);
+					}
+				}
+				else
+				{
+					_rangeAttakingNow = false;
 				}
 			}
 		}

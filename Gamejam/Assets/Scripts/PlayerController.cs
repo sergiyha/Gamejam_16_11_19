@@ -171,14 +171,17 @@ public class PlayerController : MonoBehaviour
 		return MeleeRange;
 	}
 
+
+
 	public void OnStartMeleeAttack(Character enemy)
 	{
-		
+		Debug.Log(enemy);
 	}
+
 
 	public void OnStartRangeAttack(Character enemy)
 	{
-		
+		Debug.Log(enemy);
 	}
 
 
