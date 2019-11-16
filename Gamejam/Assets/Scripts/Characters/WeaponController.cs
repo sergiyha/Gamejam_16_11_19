@@ -12,7 +12,7 @@ public class WeaponController : MonoBehaviour
     
     private Character character;
 
-    private List<Character> targets;
+    private List<Character> targets = new List<Character>();
 
     private void Awake()
     {
@@ -72,17 +72,27 @@ public class WeaponController : MonoBehaviour
             else
             {
                 Weapon.ready = true;
+                Debug.Log("weapone ready");
                 if (UseAllowed)
                 {
-                    //Weapon.useAllowed = UseAllowed;
-                    Debug.Log("Use");
-                    Weapon.SetTargets(targets);
-                    Weapon.Action();
-                    if(Weapon.ActionSound != null)
-                        character.AudioSource.PlayOneShot(Weapon.ActionSound);
-                    Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
-                    Weapon.ready = false;
-                    yield return new WaitForEndOfFrame();
+                    LookForTargets();
+                    if (targets.Count > 0)
+                    {
+                        //Weapon.useAllowed = UseAllowed;
+                        Debug.Log("Use");
+
+                        Weapon.SetTargets(targets);
+                        Weapon.Action();
+                        if (Weapon.ActionSound != null)
+                            character.AudioSource.PlayOneShot(Weapon.ActionSound);
+                        Weapon.currentCooldown = Weapon.Cooldown / atackspeedMultipl;
+                        Weapon.ready = false;
+                        yield return new WaitForEndOfFrame();
+                    }
+                    else
+                    {
+                        yield return new WaitForEndOfFrame();
+                    }
                 }
                 else
                 {

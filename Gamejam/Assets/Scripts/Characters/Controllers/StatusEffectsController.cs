@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class StatusEffectsController : MonoBehaviour
 {
     [SerializeField]
-    private List<StatusEffectBase> StatusEffects;
+    private List<StatusEffectBase> StatusEffects = new List<StatusEffectBase>();
 
     private Character character;
 

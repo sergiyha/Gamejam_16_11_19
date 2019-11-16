@@ -297,7 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Weapon: {fileID: 0}
   atackspeedMultipl: 1
-  UseAllowed: 0
+  UseAllowed: 1
 --- !u!1 &26616254
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Weapon: {fileID: 0}
   atackspeedMultipl: 1
-  UseAllowed: 0
+  UseAllowed: 1
 --- !u!1 &215798430
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Weapon: {fileID: 0}
   atackspeedMultipl: 1
-  UseAllowed: 0
+  UseAllowed: 1
 --- !u!1001 &355169227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1647,7 +1647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Weapon: {fileID: 0}
   atackspeedMultipl: 1
-  UseAllowed: 0
+  UseAllowed: 1
 --- !u!114 &1353827444 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5669609890758226401, guid: 60f436da427a1194bbe2718c1f9dddc9,
@@ -2291,7 +2291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Weapon: {fileID: 0}
   atackspeedMultipl: 1
-  UseAllowed: 0
+  UseAllowed: 1
 --- !u!1 &2021385420
 GameObject:
   m_ObjectHideFlags: 0
