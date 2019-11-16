@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-   private CreatureStats Stats;
+
    private Character character;
    
    private void Awake()

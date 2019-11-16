@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    public Character character;
     public WeaponScriptableObject Weapon;
+    public float atackspeedMultipl;//==1f if normal
     public bool UseAllowed;
     public Character[] targets;
 
@@ -14,11 +16,13 @@ public class WeaponController : MonoBehaviour
         {
             Weapon.DisableArtifact();
             Weapon = weapon;
+            Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
         }
 
         else
         {
             Weapon.EnableArtifact();
+            StartCoroutine(Use());
         }
     }
 
@@ -37,7 +41,6 @@ public class WeaponController : MonoBehaviour
     {
         while (true)
         {
-            Weapon.currentCooldown = Weapon.Cooldown;
             if (Weapon.currentCooldown > 0f)
             {
                 Weapon.currentCooldown -= Time.deltaTime;
@@ -50,7 +53,8 @@ public class WeaponController : MonoBehaviour
                 {
                     Weapon.SetTargets(targets);
                     Weapon.Action();
-                    Weapon.currentCooldown = Weapon.Cooldown;
+                    character.AudioSource.PlayOneShot(Weapon.ActionSound);
+                    Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
                     Weapon.ready = false;
                     yield return new WaitForEndOfFrame();
                 }
