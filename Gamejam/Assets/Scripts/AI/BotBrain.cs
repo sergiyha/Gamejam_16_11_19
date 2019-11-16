@@ -33,7 +33,7 @@ namespace AI
         private void Start()
         {
             self = GetComponent<Character>();
-            weaponController = self.weaponController;
+            weaponController = self.WeaponController;
             agent.updateRotation = true;
         }
 

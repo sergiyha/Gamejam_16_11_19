@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class StatusEffectBase : MonoBehaviour
+public abstract class StatusEffectBase : MonoBehaviour
 {
     public float tickTime; //if tickTime =0 then sigle use while active
     public float currentTickLeft;
