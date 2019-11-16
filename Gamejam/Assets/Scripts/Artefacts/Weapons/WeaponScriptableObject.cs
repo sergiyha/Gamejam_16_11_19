@@ -14,6 +14,7 @@ public class WeaponScriptableObject : ArtifactBase
     
     public AudioClip ActionSound;
     public AudioClip ImpactSound;
+    
     public AnimatorOverrideController aoc;
     
     public bool useAllowed;
@@ -21,7 +22,7 @@ public class WeaponScriptableObject : ArtifactBase
     
     public bool ready = false;
     public float currentCooldown = 0f;
-    
+    public BaseEffectData data;
     
     
 
@@ -38,12 +39,12 @@ public class WeaponScriptableObject : ArtifactBase
         targets = targ;
     }
 
-    public void DisableArtifact()
-    {
-        
-    }
-
-    public void EnableArtifact()
-    {
-    }
+//    public void DisableArtifact()
+//    {
+//        
+//    }
+//
+//    public void EnableArtifact()
+//    {
+//    }
 }

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb424da13531e04429b2d1490c9bfaff, type: 3}
+  m_Name: Axe Scriptable Obj
+  m_EditorClassIdentifier: 
+  SlotIcon: {fileID: 0}
+  Name: Axe
+  Description: Strong axe from higherlands
+  statusEffectIcon: {fileID: 0}
+  inventoryIcon: {fileID: 0}
+  MinDamage: 5
+  MaxDamage: 7
+  Range: 3
+  Cooldown: 5
+  AnimationTime: 1.5
+  Angle: 45
+  ActionSound: {fileID: 0}
+  ImpactSound: {fileID: 0}
+  aoc: {fileID: 0}
+  useAllowed: 1
+  ready: 1
+  currentCooldown: -0.0046645086
+  data: {fileID: 11400000, guid: 356c163596c381145b747130ded25eea, type: 2}

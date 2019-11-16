@@ -1,18 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Rage : StatusEffectBase
+﻿namespace Characters.StatusEffects
 {
-    public float additionaAS = 0.2f;
-
-    public override void ApplyEffect()
+    public class Rage : StatusEffectBase
     {
-        character.WeaponController.atackspeedMultipl  += additionaAS;
-    }
+        private RageEffectData Data;
+        
 
-    public override void Remove()
-    {
-        character.WeaponController.atackspeedMultipl  -= additionaAS;
+        
+
+        public override void Remove()
+        {
+            character.WeaponController.atackspeedMultipl  -= Data.additionaAS;
+        }
+
+        public Rage(BaseEffectData data, Character character) : base(data, character)
+        {
+            Data = (RageEffectData) data;
+            TotalTime = Data.totalTime;
+            tickTime = Data.tickTime;
+            this.character = character;
+        }
+        
+        public override void ApplyEffect()
+        {
+            character.WeaponController.atackspeedMultipl  += Data.additionaAS;
+        }
     }
 }
