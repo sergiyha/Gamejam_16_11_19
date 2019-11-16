@@ -9,7 +9,9 @@ public class BaseEffectData : ScriptableObject
     [EffectImplementation]
     [SerializeField]
     private string imp;
-        
+
+    public Sprite statusEffectIcon;
+
     #region EffectsFactory
 
     private static Type[] allEffects;

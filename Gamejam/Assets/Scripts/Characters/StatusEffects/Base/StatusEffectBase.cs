@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
@@ -11,11 +12,17 @@ public abstract class StatusEffectBase
     public float TotalTime;//if 1000000 then aura
     public float currentTotalTime = 0f;
     public bool active;
-    
+
+    public int InstanceId;
+
     public Character character;
+    public BaseEffectData data;
 
     public StatusEffectBase(BaseEffectData data, Character character)
     {
+        InstanceId = Guid.NewGuid().GetHashCode();
+
+        this.data = data;
         this.character = character;
     }
 
