@@ -18,7 +18,7 @@ namespace Characters.Controllers
         [SerializeField]
         private Transform effectsContainer;
 
-        public void Start()
+        public void Awake()
         {
             if (character.CharacterType == Character.CharType.Player)
             {

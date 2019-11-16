@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Characters.Controllers;
 using LifelongAdventure.Creatures.Data;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class Character : MonoBehaviour
 
 	public CreatureStats Stats;
 
+    [NonSerialized]
 	public CreatureStats InitialStats;
 
 	public HealthController HealthController;
