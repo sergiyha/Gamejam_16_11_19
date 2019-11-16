@@ -13,18 +13,20 @@ MonoBehaviour:
   m_Name: Axe Scriptable Obj
   m_EditorClassIdentifier: 
   SlotIcon: {fileID: 0}
-  Name: 
-  Description: 
-  MinDamage: 0
-  MaxDamage: 0
-  Range: 0
-  Cooldown: 0
-  AnimationTime: 0
-  Angle: 0
+  Name: Axe
+  Description: Strong axe from higherlands
+  statusEffectIcon: {fileID: 0}
+  inventoryIcon: {fileID: 0}
+  MinDamage: 5
+  MaxDamage: 7
+  Range: 3
+  Cooldown: 5
+  AnimationTime: 1.5
+  Angle: 45
   ActionSound: {fileID: 0}
   ImpactSound: {fileID: 0}
   aoc: {fileID: 0}
-  useAllowed: 0
-  ready: 0
-  currentCooldown: 0
+  useAllowed: 1
+  ready: 1
+  currentCooldown: -0.0046645086
   data: {fileID: 11400000, guid: 356c163596c381145b747130ded25eea, type: 2}

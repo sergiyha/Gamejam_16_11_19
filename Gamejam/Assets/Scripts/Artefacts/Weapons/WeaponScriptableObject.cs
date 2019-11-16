@@ -39,12 +39,12 @@ public class WeaponScriptableObject : ArtifactBase
         targets = targ;
     }
 
-    public void DisableArtifact()
-    {
-        
-    }
-
-    public void EnableArtifact()
-    {
-    }
+//    public void DisableArtifact()
+//    {
+//        
+//    }
+//
+//    public void EnableArtifact()
+//    {
+//    }
 }

@@ -107,6 +107,14 @@
           </e>
           <e p="Artefacts" t="Include">
             <e p="ArtifactBase.cs" t="Include" />
+            <e p="ArtifactLoot.cs" t="Include" />
+            <e p="Artifacts" t="Include">
+              <e p="ArctifactsController.cs" t="Include" />
+              <e p="HasteBoots" t="Include">
+                <e p="HasteBootsScriptable.cs" t="Include" />
+              </e>
+              <e p="UsableArtifact.cs" t="Include" />
+            </e>
             <e p="Weapons" t="Include">
               <e p="AxeScriptableObj.cs" t="Include" />
               <e p="WeaponScriptableObject.cs" t="Include" />
@@ -138,6 +146,11 @@
               <e p="RageEffectData.cs" t="Include" />
             </e>
             <e p="WeaponController.cs" t="Include" />
+          </e>
+          <e p="Inventory" t="Include">
+            <e p="CharacterInventory.cs" t="Include" />
+            <e p="Inventory.cs" t="Include" />
+            <e p="SquadInventory.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="Inventory" t="Include">

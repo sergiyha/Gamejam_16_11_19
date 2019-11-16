@@ -8,11 +8,13 @@ public class Character : MonoBehaviour
 
     public CharType CharacterType;
     public CreatureStats Stats;
+    public WeaponScriptableObject debugWeapon;
 
     public HealthController HealthController;
     public CharacterAnimationController AnimationController;
     public WeaponController WeaponController;
     public StatusEffectsController StatusEffectsController;
+    public ArctifactsController ArctifactsController;
     public AudioSource AudioSource;
 
     public enum CharType
@@ -37,5 +39,7 @@ public class Character : MonoBehaviour
         AudioSource = GetComponent<AudioSource>();
         WeaponController = GetComponent<WeaponController>();
         HealthController = GetComponent<HealthController>();
+        ArctifactsController = GetComponent<ArctifactsController>();
+        //WeaponController.AddWeapon(debugWeapon);
     }
 }
