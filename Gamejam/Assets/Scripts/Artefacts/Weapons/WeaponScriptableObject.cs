@@ -28,10 +28,7 @@ public class WeaponScriptableObject : ArtifactBase
 
     public override void Action()
     {
-        foreach (var target in targets)
-        {
-            target.HealthController.DoDamage(Random.Range(MinDamage,MaxDamage));
-        }
+       
     }
 
     public void SetTargets(List<Character> targ)

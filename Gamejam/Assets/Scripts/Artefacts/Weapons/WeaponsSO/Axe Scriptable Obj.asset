@@ -21,7 +21,7 @@ MonoBehaviour:
   MinDamage: 5
   MaxDamage: 7
   Range: 3
-  Cooldown: 5
+  Cooldown: 2.5
   AnimationTime: 1.5
   Angle: 45
   ActionSound: {fileID: 0}

@@ -12,7 +12,7 @@ public class WeaponController : MonoBehaviour
     
     private Character character;
 
-    private List<Character> targets;
+    private List<Character> targets = new List<Character>();
 
     private void Awake()
     {
@@ -62,31 +62,46 @@ public class WeaponController : MonoBehaviour
     {
         while (true)
         {
+            Weapon.useAllowed = UseAllowed;
             //Debug.Log(Weapon.currentCooldown);
             if (Weapon.currentCooldown > 0f)
             {
-                
                 Weapon.currentCooldown -= Time.deltaTime;
-                Debug.Log("Use");
                 yield return new WaitForEndOfFrame();
             }
             else
             {
                 Weapon.ready = true;
+                Debug.Log("weapone ready");
                 if (UseAllowed)
                 {
-                    Weapon.SetTargets(targets);
-                    Weapon.Action();
-                    character.AudioSource.PlayOneShot(Weapon.ActionSound);
-                    Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
-                    Weapon.ready = false;
-                    yield return new WaitForEndOfFrame();
+                    LookForTargets();
+                    if (targets.Count > 0)
+                    {
+                        //Weapon.useAllowed = UseAllowed;
+                        Debug.Log("Use");
+
+                        Weapon.SetTargets(targets);
+                        Weapon.Action();
+                        if (Weapon.ActionSound != null)
+                            character.AudioSource.PlayOneShot(Weapon.ActionSound);
+                        Weapon.currentCooldown = Weapon.Cooldown / atackspeedMultipl;
+                        Weapon.ready = false;
+                        yield return new WaitForEndOfFrame();
+                    }
+                    else
+                    {
+                        yield return new WaitForEndOfFrame();
+                    }
                 }
                 else
                 {
                     yield return new WaitForEndOfFrame();
                 }
             }
+            yield return new WaitForEndOfFrame();;
         }
+
+        yield return null;
     }
 }
