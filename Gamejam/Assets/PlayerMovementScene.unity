@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 22076964}
   - component: {fileID: 22076963}
   - component: {fileID: 22076967}
+  - component: {fileID: 22076969}
+  - component: {fileID: 22076968}
   m_Layer: 0
   m_Name: Capsule_mele
   m_TagString: Untagged
@@ -254,10 +256,43 @@ MonoBehaviour:
     allStats:
       m_keys: 
       m_values: 
+  debugWeapon: {fileID: 0}
   HealthController: {fileID: 0}
   AnimationController: {fileID: 0}
   WeaponController: {fileID: 0}
+  StatusEffectsController: {fileID: 0}
+  ArctifactsController: {fileID: 0}
   AudioSource: {fileID: 0}
+--- !u!114 &22076968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22076961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0d41ebb1c30c04db194cfb64c52216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capasity: 0
+  artifacts: []
+  Weapon: {fileID: 11400000, guid: d163a6ae339eb1442893a1d2ebe44f09, type: 2}
+--- !u!114 &22076969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22076961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148aeb41a34ca9c4e901a28ac4c223f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 0}
+  atackspeedMultipl: 1
+  UseAllowed: 0
 --- !u!1 &26616254
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +483,8 @@ GameObject:
   - component: {fileID: 54227904}
   - component: {fileID: 54227907}
   - component: {fileID: 54227908}
+  - component: {fileID: 54227910}
+  - component: {fileID: 54227909}
   m_Layer: 0
   m_Name: Capsule_mele
   m_TagString: Untagged
@@ -568,10 +605,43 @@ MonoBehaviour:
     allStats:
       m_keys: 
       m_values: 
+  debugWeapon: {fileID: 0}
   HealthController: {fileID: 0}
   AnimationController: {fileID: 0}
   WeaponController: {fileID: 0}
+  StatusEffectsController: {fileID: 0}
+  ArctifactsController: {fileID: 0}
   AudioSource: {fileID: 0}
+--- !u!114 &54227909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54227902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0d41ebb1c30c04db194cfb64c52216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capasity: 0
+  artifacts: []
+  Weapon: {fileID: 11400000, guid: d163a6ae339eb1442893a1d2ebe44f09, type: 2}
+--- !u!114 &54227910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54227902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148aeb41a34ca9c4e901a28ac4c223f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 0}
+  atackspeedMultipl: 1
+  UseAllowed: 0
 --- !u!1 &215798430
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +656,8 @@ GameObject:
   - component: {fileID: 215798432}
   - component: {fileID: 215798435}
   - component: {fileID: 215798436}
+  - component: {fileID: 215798438}
+  - component: {fileID: 215798437}
   m_Layer: 0
   m_Name: Capsule_range
   m_TagString: Untagged
@@ -706,10 +778,43 @@ MonoBehaviour:
     allStats:
       m_keys: 
       m_values: 
+  debugWeapon: {fileID: 0}
   HealthController: {fileID: 0}
   AnimationController: {fileID: 0}
   WeaponController: {fileID: 0}
+  StatusEffectsController: {fileID: 0}
+  ArctifactsController: {fileID: 0}
   AudioSource: {fileID: 0}
+--- !u!114 &215798437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215798430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0d41ebb1c30c04db194cfb64c52216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capasity: 0
+  artifacts: []
+  Weapon: {fileID: 11400000, guid: d163a6ae339eb1442893a1d2ebe44f09, type: 2}
+--- !u!114 &215798438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215798430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148aeb41a34ca9c4e901a28ac4c223f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 0}
+  atackspeedMultipl: 1
+  UseAllowed: 0
 --- !u!1001 &355169227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1146,6 +1251,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143457558}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1201358253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5669609890758226402, guid: 60f436da427a1194bbe2718c1f9dddc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 355169227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1201358262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201358253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0d41ebb1c30c04db194cfb64c52216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capasity: 0
+  artifacts: []
+  Weapon: {fileID: 0}
 --- !u!1 &1267112763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,6 +1409,8 @@ GameObject:
   - component: {fileID: 1339578158}
   - component: {fileID: 1339578161}
   - component: {fileID: 1339578162}
+  - component: {fileID: 1339578164}
+  - component: {fileID: 1339578163}
   m_Layer: 0
   m_Name: Capsule_mele
   m_TagString: Untagged
@@ -1403,17 +1531,50 @@ MonoBehaviour:
     allStats:
       m_keys: 
       m_values: 
+  debugWeapon: {fileID: 0}
   HealthController: {fileID: 0}
   AnimationController: {fileID: 0}
   WeaponController: {fileID: 0}
+  StatusEffectsController: {fileID: 0}
+  ArctifactsController: {fileID: 0}
   AudioSource: {fileID: 0}
+--- !u!114 &1339578163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339578156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0d41ebb1c30c04db194cfb64c52216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capasity: 0
+  artifacts: []
+  Weapon: {fileID: 11400000, guid: d163a6ae339eb1442893a1d2ebe44f09, type: 2}
+--- !u!114 &1339578164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339578156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148aeb41a34ca9c4e901a28ac4c223f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 0}
+  atackspeedMultipl: 1
+  UseAllowed: 0
 --- !u!114 &1353827444 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5669609890758226401, guid: 60f436da427a1194bbe2718c1f9dddc9,
     type: 3}
   m_PrefabInstance: {fileID: 355169227}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1201358253}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 148aeb41a34ca9c4e901a28ac4c223f3, type: 3}
@@ -1887,6 +2048,8 @@ GameObject:
   - component: {fileID: 1915593497}
   - component: {fileID: 1915593500}
   - component: {fileID: 1915593501}
+  - component: {fileID: 1915593503}
+  - component: {fileID: 1915593502}
   m_Layer: 0
   m_Name: Capsule_range
   m_TagString: Untagged
@@ -2007,10 +2170,43 @@ MonoBehaviour:
     allStats:
       m_keys: 
       m_values: 
+  debugWeapon: {fileID: 0}
   HealthController: {fileID: 0}
   AnimationController: {fileID: 0}
   WeaponController: {fileID: 0}
+  StatusEffectsController: {fileID: 0}
+  ArctifactsController: {fileID: 0}
   AudioSource: {fileID: 0}
+--- !u!114 &1915593502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915593495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0d41ebb1c30c04db194cfb64c52216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capasity: 0
+  artifacts: []
+  Weapon: {fileID: 11400000, guid: d163a6ae339eb1442893a1d2ebe44f09, type: 2}
+--- !u!114 &1915593503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915593495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148aeb41a34ca9c4e901a28ac4c223f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 0}
+  atackspeedMultipl: 1
+  UseAllowed: 0
 --- !u!1 &2021385420
 GameObject:
   m_ObjectHideFlags: 0
