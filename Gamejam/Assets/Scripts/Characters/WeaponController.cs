@@ -72,7 +72,7 @@ public class WeaponController : MonoBehaviour
             else
             {
                 Weapon.ready = true;
-                Debug.Log("weapone ready");
+               // Debug.Log("weapone ready");
                 if (UseAllowed)
                 {
                     LookForTargets();

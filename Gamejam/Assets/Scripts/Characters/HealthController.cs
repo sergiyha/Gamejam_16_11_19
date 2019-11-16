@@ -20,10 +20,19 @@ public class HealthController : MonoBehaviour
         UpdateHealth();
     }
 
-    public void DoDamage(int value)
+	private void CheckDead()
+	{
+		if(character.Stats[Stat.Health]<=0)Destroy(this.gameObject);
+	}
+
+
+	public void DoDamage(int value)
     {
         character.Stats[Stat.Health] -= value;
         UpdateHealth();
+	    CheckDead();
+
+
     }
 
     public void DoHeal(int value)
