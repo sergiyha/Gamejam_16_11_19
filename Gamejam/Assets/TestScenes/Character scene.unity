@@ -593,11 +593,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 1390977491501155825, guid: c70d9c472590bef468c673c6f09e608b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3264532165651175108, guid: c70d9c472590bef468c673c6f09e608b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -653,72 +648,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5916020968801377241, guid: c70d9c472590bef468c673c6f09e608b,
-        type: 3}
-      propertyPath: debugWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: d163a6ae339eb1442893a1d2ebe44f09,
-        type: 2}
-    - target: {fileID: 5916020968801377243, guid: c70d9c472590bef468c673c6f09e608b,
-        type: 3}
-      propertyPath: Weapon
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5916020968801377243, guid: c70d9c472590bef468c673c6f09e608b,
-        type: 3}
-      propertyPath: atackspeedMultipl
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c70d9c472590bef468c673c6f09e608b, type: 3}
---- !u!1 &5916020968801377240 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1390977491501155825, guid: c70d9c472590bef468c673c6f09e608b,
-    type: 3}
-  m_PrefabInstance: {fileID: 5916020968801377238}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &5916020968801377241
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5916020968801377240}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 2.31
-  m_Height: 9.59
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5916020968801377242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5916020968801377240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50e6ba19ad977824d8f899c866707fc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  capacity: 5
-  Artifacts: []
-  atackspeedMultipl: 1
-  UseAllowed: 0
---- !u!114 &5916020968801377243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5916020968801377240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c0d41ebb1c30c04db194cfb64c52216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  capasity: 5
-  artifacts: []
-  Weapon: {fileID: 11400000, guid: d163a6ae339eb1442893a1d2ebe44f09, type: 2}
