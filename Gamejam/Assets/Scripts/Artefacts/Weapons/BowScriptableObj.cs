@@ -2,17 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ItemType
-{
-    Weapon,
-    Artifact
-}
-
 [CreateAssetMenu]
-public class AxeScriptableObj : WeaponScriptableObject
+public class BowScriptableObj : WeaponScriptableObject
 {
-    
-
     public override void Action()
     {
         base.Action();
@@ -20,7 +12,7 @@ public class AxeScriptableObj : WeaponScriptableObject
         {
             if (data != null)
             {
-                Debug.Log($"Add bleed to {target.name}");
+                Debug.Log($"Add status effect to {target.name}");
                 target.StatusEffectsController.AddStatusEffect(BaseEffectData.Create(data, target));
             }
         }

@@ -62,12 +62,11 @@ public class WeaponController : MonoBehaviour
     {
         while (true)
         {
+            Weapon.useAllowed = UseAllowed;
             //Debug.Log(Weapon.currentCooldown);
             if (Weapon.currentCooldown > 0f)
             {
-                
                 Weapon.currentCooldown -= Time.deltaTime;
-                Debug.Log("Use");
                 yield return new WaitForEndOfFrame();
             }
             else
@@ -75,9 +74,12 @@ public class WeaponController : MonoBehaviour
                 Weapon.ready = true;
                 if (UseAllowed)
                 {
+                    //Weapon.useAllowed = UseAllowed;
+                    Debug.Log("Use");
                     Weapon.SetTargets(targets);
                     Weapon.Action();
-                    character.AudioSource.PlayOneShot(Weapon.ActionSound);
+                    if(Weapon.ActionSound != null)
+                        character.AudioSource.PlayOneShot(Weapon.ActionSound);
                     Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
                     Weapon.ready = false;
                     yield return new WaitForEndOfFrame();
@@ -87,6 +89,9 @@ public class WeaponController : MonoBehaviour
                     yield return new WaitForEndOfFrame();
                 }
             }
+            yield return new WaitForEndOfFrame();;
         }
+
+        yield return null;
     }
 }

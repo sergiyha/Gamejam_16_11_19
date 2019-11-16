@@ -30,7 +30,9 @@ public class WeaponScriptableObject : ArtifactBase
     {
         foreach (var target in targets)
         {
-            target.HealthController.DoDamage(Random.Range(MinDamage,MaxDamage));
+            int dmg =Random.Range(MinDamage,MaxDamage);
+            Debug.Log($"Hit {target.name} for {dmg} dmg.");
+            target.HealthController.DoDamage(dmg);
         }
     }
 
