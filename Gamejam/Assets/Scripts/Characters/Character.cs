@@ -11,9 +11,8 @@ public class Character : MonoBehaviour
 
     public HealthController HealthController;
     public CharacterAnimationController AnimationController;
-    public WeaponController weaponController;
+    public WeaponController WeaponController;
     public AudioSource AudioSource;
-
 
     public enum CharType
     {

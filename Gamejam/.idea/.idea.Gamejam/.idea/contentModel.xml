@@ -110,8 +110,16 @@
             <e p="CreatureStats.cs" t="Include" />
             <e p="HealthController.cs" t="Include" />
             <e p="Stat.cs" t="Include" />
-            <e p="StatusEffectsController.cs" t="Include" />
-            <e p="StatusEffectUI.cs" t="Include" />
+            <e p="StatusEffects" t="Include">
+              <e p="Base" t="Include">
+                <e p="StatusEffectBase.cs" t="Include" />
+                <e p="StatusEffectsController.cs" t="Include" />
+                <e p="StatusEffectUI.cs" t="Include" />
+              </e>
+              <e p="Bleed.cs" t="Include" />
+              <e p="Haste.cs" t="Include" />
+              <e p="Rage.cs" t="Include" />
+            </e>
             <e p="WeaponController.cs" t="Include" />
           </e>
         </e>
