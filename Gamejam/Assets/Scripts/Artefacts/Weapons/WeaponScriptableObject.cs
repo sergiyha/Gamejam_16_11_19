@@ -14,6 +14,7 @@ public class WeaponScriptableObject : ArtifactBase
     
     public AudioClip ActionSound;
     public AudioClip ImpactSound;
+    
     public AnimatorOverrideController aoc;
     
     public bool useAllowed;
