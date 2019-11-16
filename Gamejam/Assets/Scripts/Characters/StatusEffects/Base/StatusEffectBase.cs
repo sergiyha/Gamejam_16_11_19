@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 
 
-public abstract class StatusEffectBase : MonoBehaviour
+public abstract class StatusEffectBase
 {
     public float tickTime; //if tickTime =0 then sigle use while active
     public float currentTickLeft;
@@ -12,6 +13,11 @@ public abstract class StatusEffectBase : MonoBehaviour
     public bool active;
     
     public Character character;
+
+    public StatusEffectBase(BaseEffectData data, Character character)
+    {
+        this.character = character;
+    }
 
     public void Tick()
     {

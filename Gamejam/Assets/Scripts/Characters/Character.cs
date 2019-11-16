@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
     public HealthController HealthController;
     public CharacterAnimationController AnimationController;
     public WeaponController WeaponController;
+    public StatusEffectsController StatusEffectsController;
     public AudioSource AudioSource;
 
     [NonSerialized]
@@ -32,6 +33,10 @@ public class Character : MonoBehaviour
 
         if (Characters.ContainsKey(CharacterType))
             Characters[CharacterType].Remove(this);
+        StatusEffectsController = GetComponent<StatusEffectsController>();
+        AudioSource = GetComponent<AudioSource>();
+        WeaponController = GetComponent<WeaponController>();
+        HealthController = GetComponent<HealthController>();
     }
 
     public enum CharType

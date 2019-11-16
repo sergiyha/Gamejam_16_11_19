@@ -1,18 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using LifelongAdventure.Creatures.Data;
-using UnityEngine;
+﻿using LifelongAdventure.Creatures.Data;
 
-public class Haste : StatusEffectBase
+namespace Characters.StatusEffects
 {
-    public float speedMultiplier = 1.5f;
-    public override void ApplyEffect()
+    public class Haste : StatusEffectBase
     {
-        character.Stats[Stat.MoveSpeed] = (int)(character.Stats[Stat.MoveSpeed] * speedMultiplier);
-    }
+        private HasteEffectData Data;
+        public override void ApplyEffect()
+        {
+            character.Stats[Stat.MoveSpeed] = (int)(character.Stats[Stat.MoveSpeed] * Data.speedMultiplier);
+        }
 
-    public override void Remove()
-    {
-        character.Stats[Stat.MoveSpeed] = (int)(character.Stats[Stat.MoveSpeed] / speedMultiplier);
+        public override void Remove()
+        {
+            character.Stats[Stat.MoveSpeed] = (int)(character.Stats[Stat.MoveSpeed] / Data.speedMultiplier);
+        }
+
+        public Haste(BaseEffectData data, Character character) : base(data, character)
+        {
+            Data = (HasteEffectData) data;
+            TotalTime = Data.totalTime;
+            tickTime = Data.tickTime;
+            this.character = character;
+        }
     }
 }

@@ -46,6 +46,7 @@ public class StatusEffectsController : MonoBehaviour
     public void AddStatusEffect(StatusEffectBase statusEffect)
     {
         StatusEffects.Add(statusEffect);
+        
         statusEffect.character = character;
     }
 }

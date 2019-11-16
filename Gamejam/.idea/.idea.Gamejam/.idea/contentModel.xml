@@ -99,28 +99,53 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="AI" t="Include">
+            <e p="BotBrain.cs" t="Include" />
+          </e>
+          <e p="Animation" t="Include">
+            <e p="CharacterAnimationController.cs" t="Include" />
+          </e>
           <e p="Artefacts" t="Include">
             <e p="ArtifactBase.cs" t="Include" />
             <e p="Weapons" t="Include">
+              <e p="AxeScriptableObj.cs" t="Include" />
               <e p="WeaponScriptableObject.cs" t="Include" />
             </e>
           </e>
           <e p="Characters" t="Include">
             <e p="Character.cs" t="Include" />
+            <e p="Controllers" t="Include">
+              <e p="StatusEffectsController.cs" t="Include" />
+              <e p="StatusEffectUI.cs" t="Include" />
+            </e>
             <e p="CreatureStats.cs" t="Include" />
             <e p="HealthController.cs" t="Include" />
             <e p="Stat.cs" t="Include" />
             <e p="StatusEffects" t="Include">
               <e p="Base" t="Include">
+                <e p="BaseEffectData.cs" t="Include" />
+                <e p="Editor" t="Include">
+                  <e p="EffectImplementationDrawer.cs" t="Include" />
+                </e>
+                <e p="EffectImplementationAttribute.cs" t="Include" />
                 <e p="StatusEffectBase.cs" t="Include" />
-                <e p="StatusEffectsController.cs" t="Include" />
-                <e p="StatusEffectUI.cs" t="Include" />
               </e>
               <e p="Bleed.cs" t="Include" />
+              <e p="BleedEffectData.cs" t="Include" />
               <e p="Haste.cs" t="Include" />
+              <e p="HasteEffectData.cs" t="Include" />
               <e p="Rage.cs" t="Include" />
+              <e p="RageEffectData.cs" t="Include" />
             </e>
             <e p="WeaponController.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="Inventory" t="Include">
+              <e p="Container.cs" t="Include" />
+              <e p="DraggableItem.cs" t="Include" />
+              <e p="IItemHolder.cs" t="Include" />
+              <e p="InventorySlot.cs" t="Include" />
+            </e>
           </e>
         </e>
       </e>
