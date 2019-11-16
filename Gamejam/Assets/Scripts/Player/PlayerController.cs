@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Sirenix.Utilities;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
@@ -38,7 +40,23 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField] private float MeleeRange;
 	[SerializeField] private float RangeRange;
-	
+
+	[SerializeField] private bool _meleeAttacking;
+
+	[SerializeField] private UnitMovableContainer _meleeContainer;
+	[SerializeField] private UnitMovableContainer _rangeContainer;
+
+	private void Start()
+	{
+		_meleeContainer = new UnitMovableContainer();
+		_rangeContainer = new UnitMovableContainer();
+
+		_meleeContainer.AddAgents(_meleAgents);
+		_meleeContainer.AddTargets(_meleAgentsPositions);
+
+		_rangeContainer.AddAgents(_rangeAgents);
+		_rangeContainer.AddTargets(_rangedAgentsPositions);
+	}
 
 	// Start is called before the first frame update
 
@@ -46,7 +64,7 @@ public class PlayerController : MonoBehaviour
 	{
 		FindDirection();
 		MoveAgents();
-		MoveRanged();
+		
 	}
 
 	public void AddNewUnit()
@@ -98,28 +116,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public void AddCharacter()
-	{
-
-	}
-
-	public void DeleteCharacter()
-	{
-		
-	}
-
-	private void CheckEnemies()
-	{
-
-	}
-
-	private void Attack()
-	{
-			
-	}
-
 	
-
 
 	private void OnDrawGizmos()
 	{
@@ -132,23 +129,9 @@ public class PlayerController : MonoBehaviour
 
 	private void MoveAgents()
 	{
-		MoveMele();
-	}
-
-	private void MoveMele()
-	{
-		for (var i = 0; i < _meleAgents.Length; i++)
-		{
-			_meleAgents[i].destination = _meleAgentsPositions[i].transform.position;
-		}
-	}
-
-	private void MoveRanged()
-	{
-		for (var i = 0; i < _rangeAgents.Length; i++)
-		{
-			_rangeAgents[i].destination = _rangedAgentsPositions[i].transform.position;
-		}
+		//MoveMelee();
+		_meleeContainer.Move();
+		_rangeContainer.Move();
 	}
 
 	private void MoveUnits()
@@ -171,17 +154,17 @@ public class PlayerController : MonoBehaviour
 		return MeleeRange;
 	}
 
+	private List<Character> _meleEnemies = null;
+	private List<Character> _rangeEnemies = null;
 
-
-	public void OnStartMeleeAttack(Character enemy)
+	public void OnStartMeleeAttack(List<Character> enemy)
 	{
-		Debug.Log(enemy);
+		_meleeContainer.SetEnemies(enemy);
 	}
 
-
-	public void OnStartRangeAttack(Character enemy)
+	public void OnStartRangeAttack(List<Character> enemy)
 	{
-		Debug.Log(enemy);
+	
 	}
 
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
@@ -23,41 +24,33 @@ public class PlayerBrain : MonoBehaviour
 		{
 			yield return null;
 			List<Character> enemies = null;
-			if (!Character.Characters.TryGetValue(Character.CharType.Bot, out enemies)) continue;
+			if (!Character.Characters.TryGetValue(Character.CharType.Bot, out enemies))
+			{
+				_playerController.OnStartMeleeAttack(null);
+				_playerController.OnStartRangeAttack(null);
+				continue;
+			}
+
 
 			var meleDistance = _playerController.GetMeleeDistance();
 			var rangeDistance = _playerController.GetRangeDistance();
 
-
-			for (int i = 0; i < enemies.Count; i++)
+			if (enemies.Any(e => Vector3.Distance(this.transform.position, e.transform.position) <= meleDistance))
 			{
-				var enemy = enemies[i];
-				var distanceToEnemy = Vector3.Distance(this.transform.position, enemy.transform.position);
-				if (distanceToEnemy <= meleDistance)
-				{
-					if (!_melleeAttakingNow)
-					{
-						_melleeAttakingNow = true;
-						_playerController.OnStartMeleeAttack(enemy);
-					}
-				}
-				else
-				{
-					_melleeAttakingNow = false;
-				}
+				_playerController.OnStartMeleeAttack(enemies);
+			}
+			else
+			{
+				_playerController.OnStartMeleeAttack(null);
+			}
 
-				if (distanceToEnemy <= rangeDistance)
-				{
-					if (!_rangeAttakingNow)
-					{
-						_rangeAttakingNow = true;
-						_playerController.OnStartRangeAttack(enemy);
-					}
-				}
-				else
-				{
-					_rangeAttakingNow = false;
-				}
+			if (enemies.Any(e => Vector3.Distance(this.transform.position, e.transform.position) <= rangeDistance))
+			{
+				_playerController.OnStartRangeAttack(enemies);
+			}
+			else
+			{
+				_playerController.OnStartRangeAttack(null);
 			}
 		}
 	}
