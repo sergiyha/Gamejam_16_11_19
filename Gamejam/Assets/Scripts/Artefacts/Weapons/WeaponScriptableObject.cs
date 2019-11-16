@@ -21,7 +21,7 @@ public class WeaponScriptableObject : ArtifactBase
     
     public bool ready = false;
     public float currentCooldown = 0f;
-    
+    public BaseEffectData data;
     
     
 
