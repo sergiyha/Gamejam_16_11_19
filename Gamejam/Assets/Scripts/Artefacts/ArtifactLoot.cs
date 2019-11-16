@@ -12,7 +12,11 @@ public class ArtifactLoot : MonoBehaviour
 
         if (other.GetComponent<Character>() != null)
         {
-            
+            Character character = other.GetComponent<Character>();
+            if (character.CharacterType == Character.CharType.Player)
+            {
+                SquadInventory.Instance.AddArtefact(ArtifactScriptable);
+            }
         }
     }
 }
