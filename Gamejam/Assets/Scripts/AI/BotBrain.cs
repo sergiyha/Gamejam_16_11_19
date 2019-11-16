@@ -9,26 +9,15 @@ namespace AI
 {
     public class BotBrain : MonoBehaviour
     {
-        public static List<BotBrain> AllBots = new List<BotBrain>();
-        
-        //TODO - players
-        [SerializeField]
-        private List<Transform> targets;
-
         [SerializeField]
         private NavMeshAgent agent;
-
-        [SerializeField]
-        private bool isRange = false;
-
-        [SerializeField]
-        private float attackDistance = 1;
 
         [SerializeField]
         private float lostDistance = 20;
         
         [SerializeField]
         private float sensorDistance = 10;
+
         [SerializeField]
         private float viewAngle = 60;
 
@@ -36,23 +25,26 @@ namespace AI
         private float patroolRange = 3;
 
         private Coroutine corutine;
-        private Transform currentTarget;
+        private Character currentTarget;
+
+        private Character self;
+        private WeaponController weaponController;
         
         private void Start()
         {
+            self = GetComponent<Character>();
+            weaponController = self.weaponController;
             agent.updateRotation = true;
         }
 
         private void OnDisable()
         {
             StopCoroutine(corutine);
-            AllBots.Remove(this);
         }
 
         private void OnEnable()
         {
             corutine = StartCoroutine(Decision());
-            AllBots.Add(this);
         }
 
         private IEnumerator Decision()
@@ -66,18 +58,19 @@ namespace AI
 
                 if (currentTarget != null)
                 {
-                    var cureDist = Vector3.Distance(currentTarget.position, transform.position);
+                    var cureDist = Vector3.Distance(currentTarget.transform.position, transform.position);
 
-                    if (cureDist <= attackDistance)
+                    if (cureDist <= weaponController.Weapon.Range)
                     {
                         agent.isStopped = true;
-                        Attack();
+                        weaponController.UseAllowed = true;
                     }
                     else if (cureDist <= lostDistance)
                     {
                         agent.isStopped = false;
-                        var needableDist = Vector3.Lerp(currentTarget.position, transform.position, attackDistance / cureDist);
+                        var needableDist = Vector3.Lerp(currentTarget.transform.position, transform.position, weaponController.Weapon.Range / cureDist);
                         agent.SetDestination(needableDist);
+                        weaponController.UseAllowed = false;
                     }
                     else
                         currentTarget = null;
@@ -85,54 +78,59 @@ namespace AI
 
                 if (currentTarget == null)
                 {
+                    weaponController.UseAllowed = false;
                     float minDist = float.MaxValue;
-                    Transform currTarget = null;
-                    foreach (Transform target in targets)
+                    Character currTarget = null;
+                    if (Character.Characters.ContainsKey(Character.CharType.Player))
                     {
-                        var dist = Vector3.Distance(target.position, transform.position);
-                        if (dist < minDist)
-                        {
-                            minDist = dist;
-                            currTarget = target;
-                        }
-                    }
+                        var targets = Character.Characters[Character.CharType.Player];
 
-                    if (minDist <= sensorDistance)
-                    {
-                        currentTarget = currTarget;
-                    }
-                    else
-                    {
-                        if (Vector3.Distance(transform.position, agent.destination) < 0.2f)
+                        foreach (var target in targets)
                         {
-                            var dest = Random.insideUnitSphere * patroolRange;
-                            dest.y = 0;
-                            agent.isStopped = false;
-                            agent.SetDestination(transform.position + dest);
+                            var dist = Vector3.Distance(target.transform.position, transform.position);
+                            if (dist < minDist && Vector3.Angle(transform.forward, (target.transform.position - transform.position).normalized) <=
+                                viewAngle)
+                            {
+                                minDist = dist;
+                                currTarget = target;
+                            }
+                        }
+
+                        if (minDist <= sensorDistance)
+                        {
+                            currentTarget = currTarget;
+                        }
+                        else
+                        {
+                            if (Vector3.Distance(transform.position, agent.destination) < 0.2f)
+                            {
+                                var dest = Random.insideUnitSphere * patroolRange;
+                                dest.y = 0;
+                                agent.isStopped = false;
+                                agent.SetDestination(transform.position + dest);
+                            }
                         }
                     }
                 }
             }
         }
 
-        private void Attack()
-        {
-            Debug.Log("Attack");
-        }
-
         public void Update()
         {
             if (currentTarget != null && agent.isStopped)
             {
-                transform.forward = Vector3.Lerp(transform.forward, currentTarget.position - transform.position, Time.deltaTime * 5);
+                transform.forward = Vector3.Lerp(transform.forward, currentTarget.transform.position - transform.position, Time.deltaTime * 5);
             }
         }
 
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, attackDistance);
+            if (weaponController != null && weaponController.Weapon != null)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(transform.position, weaponController.Weapon.Range);
+            }
 
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, lostDistance);
