@@ -5,7 +5,7 @@ using UnityEngine;
 public class Container : MonoBehaviour, IItemHolder
 {
     [SerializeField]
-    private Transform holder;
+    protected Transform holder;
     [SerializeField]
     private int maxCount = -1;
 

@@ -16,7 +16,7 @@ MonoBehaviour:
   Name: Axe
   Description: Strong axe from higherlands
   StatusEffectIcon: {fileID: 0}
-  InventoryIcon: {fileID: 0}
+  InventoryIcon: {fileID: 21300000, guid: ac04c8445ea9aa547886fcde99acf880, type: 3}
   ArtefactType: 0
   MinDamage: 5
   MaxDamage: 7
@@ -29,5 +29,5 @@ MonoBehaviour:
   aoc: {fileID: 0}
   useAllowed: 0
   ready: 1
-  currentCooldown: -0.004767729
+  currentCooldown: 0.8039713
   data: {fileID: 11400000, guid: 356c163596c381145b747130ded25eea, type: 2}

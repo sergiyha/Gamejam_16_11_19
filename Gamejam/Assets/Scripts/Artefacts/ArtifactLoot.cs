@@ -9,13 +9,13 @@ public class ArtifactLoot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.GetComponent<Character>() != null)
+        if (other.CompareTag("Player"))
         {
             Character character = other.GetComponent<Character>();
             if (character.CharacterType == Character.CharType.Player)
             {
                 SquadInventory.Instance.AddArtefact(ArtifactScriptable);
+                Destroy(gameObject);
             }
         }
     }

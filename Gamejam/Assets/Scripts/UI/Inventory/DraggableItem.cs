@@ -13,7 +13,7 @@ namespace UI.Inventory
         public static List<RaycastResult> raycastResults = new List<RaycastResult>();
 
         [SerializeField]
-        private Transform _contriner;
+        protected Transform _contriner;
 
         private Vector3 _startPosition;
         private Vector3 _offsetToMouse;

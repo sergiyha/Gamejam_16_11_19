@@ -16,7 +16,7 @@ MonoBehaviour:
   Name: Bow
   Description: Nice strong bow
   StatusEffectIcon: {fileID: 0}
-  InventoryIcon: {fileID: 0}
+  InventoryIcon: {fileID: 21300000, guid: 0959fbfc450ff5d4e950610000823d0a, type: 3}
   ArtefactType: 0
   MinDamage: 4
   MaxDamage: 6
