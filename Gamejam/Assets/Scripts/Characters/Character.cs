@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using LifelongAdventure.Creatures.Data;
 using UnityEngine;
 
@@ -14,11 +15,8 @@ public class Character : MonoBehaviour
     public WeaponController WeaponController;
     public AudioSource AudioSource;
 
-    public enum CharType
-    {
-        Player = 0,
-        Bot = 1
-    }
+    [NonSerialized]
+    public CreatureStats InitialStats;
 
     private void OnDisable()
     {
@@ -30,7 +28,15 @@ public class Character : MonoBehaviour
 
     private void OnEnable()
     {
+        InitialStats = CreatureStats.Clone(Stats);
+
         if (Characters.ContainsKey(CharacterType))
             Characters[CharacterType].Remove(this);
+    }
+
+    public enum CharType
+    {
+        Player = 0,
+        Bot = 1
     }
 }
