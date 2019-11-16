@@ -1,51 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Characters.Controllers;
 using LifelongAdventure.Creatures.Data;
 using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public static Dictionary<CharType, List<Character>> Characters = new Dictionary<CharType, List<Character>>();
+	public static Dictionary<CharType, List<Character>> Characters = new Dictionary<CharType, List<Character>>();
 
-    public CharType CharacterType;
-    public Sprite Icon;
+	public CharType CharacterType;
+	public Sprite Icon;
 
-    public CreatureStats Stats;
+	public CreatureStats Stats;
 
-    public HealthController HealthController;
-    public CharacterAnimationController AnimationController;
-    public WeaponController WeaponController;
-    public StatusEffectsController StatusEffectsController;
-    public UiController UiController;
-    public AudioSource AudioSource;
+	public CreatureStats InitialStats;
 
-    [NonSerialized]
-    public CreatureStats InitialStats;
+	public HealthController HealthController;
+	public CharacterAnimationController AnimationController;
+	public WeaponController WeaponController;
+	public StatusEffectsController StatusEffectsController;
+	public UiController UiController;
+	public ArctifactsController ArctifactsController;
+	public AudioSource AudioSource;
 
-    private void OnDisable()
-    {
-        if (!Characters.ContainsKey(CharacterType))
-            Characters.Add(CharacterType, new List<Character>());
+	public enum CharType
+	{
+		Player = 0,
+		Bot = 1
+	}
 
-        Characters[CharacterType].Add(this);
-    }
+	private void OnDisable()
+	{
+		if (Characters.ContainsKey(CharacterType))
+			Characters[CharacterType].Remove(this);
 
-    private void OnEnable()
-    {
-        InitialStats = CreatureStats.Clone(Stats);
+	}
 
-        if (Characters.ContainsKey(CharacterType))
-            Characters[CharacterType].Remove(this);
-        StatusEffectsController = GetComponent<StatusEffectsController>();
-        AudioSource = GetComponent<AudioSource>();
-        WeaponController = GetComponent<WeaponController>();
-        HealthController = GetComponent<HealthController>();
-    }
+	private void OnEnable()
+	{
+		InitialStats = CreatureStats.Clone(Stats);
+		if (!Characters.ContainsKey(CharacterType))
+			Characters.Add(CharacterType, new List<Character>());
 
-    public enum CharType
-    {
-        Player = 0,
-        Bot = 1
-    }
+		Characters[CharacterType].Add(this);
+		StatusEffectsController = GetComponent<StatusEffectsController>();
+		AudioSource = GetComponent<AudioSource>();
+		WeaponController = GetComponent<WeaponController>();
+		HealthController = GetComponent<HealthController>();
+		ArctifactsController = GetComponent<ArctifactsController>();
+		//WeaponController.AddWeapon(debugWeapon);
+	}
 }

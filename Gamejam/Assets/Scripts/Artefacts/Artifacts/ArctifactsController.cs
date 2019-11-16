@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponController : MonoBehaviour
+public class ArctifactsController : MonoBehaviour
 {
-    
-    public WeaponScriptableObject Weapon;
+    public int capacity;
+    public List<ArtifactBase> Artifacts;
     public float atackspeedMultipl =1f;//==1f if normal
     public bool UseAllowed;
     
@@ -21,9 +20,10 @@ public class WeaponController : MonoBehaviour
     }
 
     
-    public void AddWeapon(WeaponScriptableObject weapon)
+    public void AddArtifact(WeaponScriptableObject weapon)
     {
-        if (Weapon != null)
+        
+      /*  if (Weapon != null)
         {
             Weapon.DisableArtifact();
             Weapon = weapon;
@@ -34,7 +34,7 @@ public class WeaponController : MonoBehaviour
             Weapon = weapon;
             Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
             StartCoroutine(Use());
-        }
+        }*/
     }
 
     private void LookForTargets()
@@ -49,44 +49,49 @@ public class WeaponController : MonoBehaviour
 
         for (int i = 0; i < targets.Count; i++)
         {
-            if (Vector3.Distance(targets[i].transform.position, transform.position) > Weapon.Range
+           /* if (Vector3.Distance(targets[i].transform.position, transform.position) > Weapon.Range
                 || Vector3.Angle(transform.forward, (targets[i].transform.position - transform.position).normalized) <= Weapon.Angle)
             {
                 targets.RemoveAt(i);
                 i--;
-            }
+            }*/
         }
     }
 
     public IEnumerator Use()
-    {
+    {/*
         while (true)
         {
-            //Debug.Log(Weapon.currentCooldown);
-            if (Weapon.currentCooldown > 0f)
+            foreach (var artifact in Artifacts)
             {
-                
-                Weapon.currentCooldown -= Time.deltaTime;
-                Debug.Log("Use");
-                yield return new WaitForEndOfFrame();
-            }
-            else
-            {
-                Weapon.ready = true;
-                if (UseAllowed)
+                Debug.Log(artifact.currentCooldown);
+                if (Weapon.currentCooldown > 0f)
                 {
-                    Weapon.SetTargets(targets);
-                    Weapon.Action();
-                    character.AudioSource.PlayOneShot(Weapon.ActionSound);
-                    Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
-                    Weapon.ready = false;
+                
+                    Weapon.currentCooldown -= Time.deltaTime;
+                    Debug.Log("Use");
                     yield return new WaitForEndOfFrame();
                 }
                 else
                 {
-                    yield return new WaitForEndOfFrame();
+                    Weapon.ready = true;
+                    if (UseAllowed)
+                    {
+                        Weapon.SetTargets(targets);
+                        Weapon.Action();
+                        character.AudioSource.PlayOneShot(Weapon.ActionSound);
+                        Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
+                        Weapon.ready = false;
+                        yield return new WaitForEndOfFrame();
+                    }
+                    else
+                    {
+                        yield return new WaitForEndOfFrame();
+                    }
                 }
             }
-        }
+        
+        }*/
+        yield return null;
     }
 }

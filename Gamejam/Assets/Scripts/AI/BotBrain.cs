@@ -110,8 +110,18 @@ namespace AI
                                 agent.SetDestination(transform.position + dest);
                             }
                         }
+					}
+					else
+                    {
+	                    if (Vector3.Distance(transform.position, agent.destination) < 0.2f)
+	                    {
+		                    var dest = Random.insideUnitSphere * patroolRange;
+		                    dest.y = 0;
+		                    agent.isStopped = false;
+		                    agent.SetDestination(transform.position + dest);
+	                    }
                     }
-                }
+				}
             }
         }
 

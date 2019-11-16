@@ -7,9 +7,13 @@ public class ArtifactBase : ScriptableObject
     public Sprite SlotIcon;
     public string Name;
     public string Description;
+<<<<<<< HEAD
+    public Sprite inventoryIcon;
+=======
     public Sprite StatusEffectIcon;
     public Sprite InventoryIcon;
     public ItemType ArtefactType;
+>>>>>>> PlayerMovement
     protected List<Character> targets;
     
     public virtual void Action()
