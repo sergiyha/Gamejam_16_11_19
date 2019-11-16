@@ -1,15 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public Character Character;
+    
     public WeaponScriptableObject Weapon;
     public float atackspeedMultipl;//==1f if normal
     public bool UseAllowed;
+    
+    private Character character;
 
     private List<Character> targets;
+
+    private void Awake()
+    {
+        character = GetComponent<Character>();
+    }
 
     public void AddWeapon(WeaponScriptableObject weapon)
     {
@@ -33,7 +41,7 @@ public class WeaponController : MonoBehaviour
 
         foreach (var characters in Character.Characters)
         {
-            if(characters.Key != Character.CharacterType)
+            if(characters.Key != character.CharacterType)
                 targets.AddRange(characters.Value);
         }
 
@@ -64,7 +72,7 @@ public class WeaponController : MonoBehaviour
                 {
                     Weapon.SetTargets(targets);
                     Weapon.Action();
-                    Character.AudioSource.PlayOneShot(Weapon.ActionSound);
+                    character.AudioSource.PlayOneShot(Weapon.ActionSound);
                     Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
                     Weapon.ready = false;
                     yield return new WaitForEndOfFrame();

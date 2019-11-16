@@ -175,8 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148aeb41a34ca9c4e901a28ac4c223f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 0}
-  Weapon: {fileID: 0}
+  Weapon: {fileID: 11400000, guid: d163a6ae339eb1442893a1d2ebe44f09, type: 2}
   atackspeedMultipl: 0
   UseAllowed: 0
 --- !u!114 &5916020968801377244
