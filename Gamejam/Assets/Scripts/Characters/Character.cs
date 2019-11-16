@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
         Player = 0,
         Bot = 1
     }
-
+	
     private void OnDisable()
     {
         if (!Characters.ContainsKey(CharacterType))
@@ -33,4 +33,6 @@ public class Character : MonoBehaviour
         if (Characters.ContainsKey(CharacterType))
             Characters[CharacterType].Remove(this);
     }
+
+
 }

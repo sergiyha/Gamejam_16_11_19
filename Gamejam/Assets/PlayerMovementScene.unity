@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 22076965}
   - component: {fileID: 22076964}
   - component: {fileID: 22076963}
+  - component: {fileID: 22076967}
   m_Layer: 0
   m_Name: Capsule_mele
   m_TagString: Untagged
@@ -236,6 +237,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22076961}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &22076967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22076961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3cd722ab3b84c4ba94673b3d392c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterType: 0
+  Stats:
+    allStats:
+      m_keys: 
+      m_values: 
+  HealthController: {fileID: 0}
+  AnimationController: {fileID: 0}
+  WeaponController: {fileID: 0}
+  AudioSource: {fileID: 0}
 --- !u!1 &26616254
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +272,7 @@ GameObject:
   - component: {fileID: 26616256}
   - component: {fileID: 26616255}
   - component: {fileID: 26616257}
+  - component: {fileID: 26616261}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -290,8 +313,8 @@ MonoBehaviour:
   - {fileID: 792568470}
   - {fileID: 397693614}
   _speed: 10
-  MeleRange: 0
-  RangeRange: 0
+  MeleeRange: 0
+  RangeRange: 30
 --- !u!114 &26616256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +422,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &26616261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26616254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78277324cc8fbf44289f2dae5029eb8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &54227902
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +447,7 @@ GameObject:
   - component: {fileID: 54227905}
   - component: {fileID: 54227904}
   - component: {fileID: 54227907}
+  - component: {fileID: 54227908}
   m_Layer: 0
   m_Name: Capsule_mele
   m_TagString: Untagged
@@ -515,6 +551,27 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &54227908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54227902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3cd722ab3b84c4ba94673b3d392c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterType: 0
+  Stats:
+    allStats:
+      m_keys: 
+      m_values: 
+  HealthController: {fileID: 0}
+  AnimationController: {fileID: 0}
+  WeaponController: {fileID: 0}
+  AudioSource: {fileID: 0}
 --- !u!1 &215798430
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +585,7 @@ GameObject:
   - component: {fileID: 215798433}
   - component: {fileID: 215798432}
   - component: {fileID: 215798435}
+  - component: {fileID: 215798436}
   m_Layer: 0
   m_Name: Capsule_range
   m_TagString: Untagged
@@ -631,6 +689,101 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &215798436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215798430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3cd722ab3b84c4ba94673b3d392c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterType: 0
+  Stats:
+    allStats:
+      m_keys: 
+      m_values: 
+  HealthController: {fileID: 0}
+  AnimationController: {fileID: 0}
+  WeaponController: {fileID: 0}
+  AudioSource: {fileID: 0}
+--- !u!1001 &355169227
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5669609890758226402, guid: 60f436da427a1194bbe2718c1f9dddc9,
+        type: 3}
+      propertyPath: m_Name
+      value: Nolan
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669609890757799362, guid: 60f436da427a1194bbe2718c1f9dddc9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669609890757799362, guid: 60f436da427a1194bbe2718c1f9dddc9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669609890757799362, guid: 60f436da427a1194bbe2718c1f9dddc9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669609890757799362, guid: 60f436da427a1194bbe2718c1f9dddc9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669609890757799362, guid: 60f436da427a1194bbe2718c1f9dddc9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669609890757799362, guid: 60f436da427a1194bbe2718c1f9dddc9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669609890757799362, guid: 60f436da427a1194bbe2718c1f9dddc9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669609890757799362, guid: 60f436da427a1194bbe2718c1f9dddc9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669609890757799362, guid: 60f436da427a1194bbe2718c1f9dddc9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669609890757799362, guid: 60f436da427a1194bbe2718c1f9dddc9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669609890757799362, guid: 60f436da427a1194bbe2718c1f9dddc9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669609890758226206, guid: 60f436da427a1194bbe2718c1f9dddc9,
+        type: 3}
+      propertyPath: WeaponController
+      value: 
+      objectReference: {fileID: 1353827444}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60f436da427a1194bbe2718c1f9dddc9, type: 3}
 --- !u!1 &397693613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,6 +1282,7 @@ GameObject:
   - component: {fileID: 1339578159}
   - component: {fileID: 1339578158}
   - component: {fileID: 1339578161}
+  - component: {fileID: 1339578162}
   m_Layer: 0
   m_Name: Capsule_mele
   m_TagString: Untagged
@@ -1232,6 +1386,39 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1339578162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339578156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3cd722ab3b84c4ba94673b3d392c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterType: 0
+  Stats:
+    allStats:
+      m_keys: 
+      m_values: 
+  HealthController: {fileID: 0}
+  AnimationController: {fileID: 0}
+  WeaponController: {fileID: 0}
+  AudioSource: {fileID: 0}
+--- !u!114 &1353827444 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5669609890758226401, guid: 60f436da427a1194bbe2718c1f9dddc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 355169227}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148aeb41a34ca9c4e901a28ac4c223f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1407969945
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,7 +1666,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687178979}
   m_LocalRotation: {x: 0.41151434, y: 0.000007166347, z: -0.000015871701, w: 0.9114033}
-  m_LocalPosition: {x: -0.4, y: 20, z: -12}
+  m_LocalPosition: {x: -0.4, y: 36.1, z: -28.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1699,6 +1886,7 @@ GameObject:
   - component: {fileID: 1915593498}
   - component: {fileID: 1915593497}
   - component: {fileID: 1915593500}
+  - component: {fileID: 1915593501}
   m_Layer: 0
   m_Name: Capsule_range
   m_TagString: Untagged
@@ -1802,6 +1990,27 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1915593501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915593495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3cd722ab3b84c4ba94673b3d392c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterType: 0
+  Stats:
+    allStats:
+      m_keys: 
+      m_values: 
+  HealthController: {fileID: 0}
+  AnimationController: {fileID: 0}
+  WeaponController: {fileID: 0}
+  AudioSource: {fileID: 0}
 --- !u!1 &2021385420
 GameObject:
   m_ObjectHideFlags: 0

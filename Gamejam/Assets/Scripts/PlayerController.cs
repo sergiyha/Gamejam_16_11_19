@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
@@ -37,8 +36,9 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField] private float _speed;
 
-	[SerializeField] private float MeleRange;
+	[SerializeField] private float MeleeRange;
 	[SerializeField] private float RangeRange;
+	
 
 	// Start is called before the first frame update
 
@@ -98,9 +98,36 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	public void AddCharacter()
+	{
+
+	}
+
+	public void DeleteCharacter()
+	{
+		
+	}
+
+	private void CheckEnemies()
+	{
+
+	}
+
+	private void Attack()
+	{
+			
+	}
+
+	
+
+
 	private void OnDrawGizmos()
 	{
 		Gizmos.DrawSphere(MousePositionHit, 1);
+		Gizmos.color = Color.cyan;
+		Gizmos.DrawWireSphere(this.transform.position, MeleeRange);
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere(this.transform.position, RangeRange);
 	}
 
 	private void MoveAgents()
@@ -134,7 +161,25 @@ public class PlayerController : MonoBehaviour
 		this.transform.position += new Vector3(x, 0, y);
 	}
 
+	public float GetRangeDistance()
+	{
+		return RangeRange;
+	}
 
+	public float GetMeleeDistance()
+	{
+		return MeleeRange;
+	}
+
+	public void OnStartMeleeAttack(Character enemy)
+	{
+		
+	}
+
+	public void OnStartRangeAttack(Character enemy)
+	{
+		
+	}
 
 
 }
