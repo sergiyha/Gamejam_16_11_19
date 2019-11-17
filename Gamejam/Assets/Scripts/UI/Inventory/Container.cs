@@ -5,17 +5,21 @@ using UnityEngine;
 public class Container : MonoBehaviour, IItemHolder
 {
     [SerializeField]
-    private Transform holder;
+    protected ArtifactItem prefab;
+    [SerializeField]
+    protected Transform dragContainer;
+    [SerializeField]
+    protected Transform holder;
     [SerializeField]
     private int maxCount = -1;
 
-    private List<DraggableItem> items = new List<DraggableItem>();
+    protected List<DraggableItem> items = new List<DraggableItem>();
 
     public DraggableItem Item => items.Count >= 1 ? items[0] : null;
 
     public IEnumerable<DraggableItem> Items => items;
 
-    public bool AddItem(DraggableItem item)
+    public virtual bool AddItem(DraggableItem item)
     {
         if(maxCount > 0)
             if (items.Count >= maxCount)
@@ -25,7 +29,7 @@ public class Container : MonoBehaviour, IItemHolder
         return true;
     }
 
-    public void RemoveItem(DraggableItem item)
+    public virtual void RemoveItem(DraggableItem item)
     {
         if (items.Contains(item))
             items.Remove(item);

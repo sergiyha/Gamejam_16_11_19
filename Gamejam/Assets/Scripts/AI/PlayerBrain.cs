@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
@@ -23,42 +25,52 @@ public class PlayerBrain : MonoBehaviour
 		{
 			yield return null;
 			List<Character> enemies = null;
-			if (!Character.Characters.TryGetValue(Character.CharType.Bot, out enemies)) continue;
+			if (!Character.Characters.TryGetValue(Character.CharType.Bot, out enemies))
+			{
+				_playerController.OnStartMeleeAttack(null);
+				_playerController.OnStartRangeAttack(null);
+				continue;
+			}
+
 
 			var meleDistance = _playerController.GetMeleeDistance();
 			var rangeDistance = _playerController.GetRangeDistance();
 
 
-			for (int i = 0; i < enemies.Count; i++)
+			List<CharacterAndDistance> CharMeleDist = null;
+			List<CharacterAndDistance> CharRangedDist = null;
+			var meleeTargets = enemies.Where(e => Vector3.Distance(this.transform.position, e.transform.position) <= meleDistance);
+			var rangedTargets = enemies.Where(e => Vector3.Distance(this.transform.position, e.transform.position) <= rangeDistance);
+			enemies.ForEach(e =>
 			{
-				var enemy = enemies[i];
-				var distanceToEnemy = Vector3.Distance(this.transform.position, enemy.transform.position);
-				if (distanceToEnemy <= meleDistance)
+				var dist = Vector3.Distance(this.transform.position, e.transform.position);
+
+				if (dist <= meleDistance)
 				{
-					if (!_melleeAttakingNow)
+					CharMeleDist = CharMeleDist ?? new List<CharacterAndDistance>();
+					CharMeleDist.Add(new CharacterAndDistance()
 					{
-						_melleeAttakingNow = true;
-						_playerController.OnStartMeleeAttack(enemy);
-					}
+						Character = e,
+						Distance = dist
+					});
 				}
-				else
+				else if (dist <= rangeDistance)
 				{
-					_melleeAttakingNow = false;
+					CharRangedDist = CharRangedDist ?? new List<CharacterAndDistance>();
+					CharRangedDist.Add(new CharacterAndDistance()
+					{
+						Character = e,
+						Distance = dist
+					});
 				}
 
-				if (distanceToEnemy <= rangeDistance)
-				{
-					if (!_rangeAttakingNow)
-					{
-						_rangeAttakingNow = true;
-						_playerController.OnStartRangeAttack(enemy);
-					}
-				}
-				else
-				{
-					_rangeAttakingNow = false;
-				}
-			}
+
+			});
+
+			_playerController.OnStartRangeAttack(CharRangedDist);
+			_playerController.OnStartMeleeAttack(CharMeleDist);
+
+
 		}
 	}
 }

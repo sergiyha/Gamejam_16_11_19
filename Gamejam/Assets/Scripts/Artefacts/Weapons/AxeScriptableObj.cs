@@ -18,11 +18,9 @@ public class AxeScriptableObj : WeaponScriptableObject
         foreach (var target in targets)
         {
             int dmg = Random.Range(MinDamage,MaxDamage);
-            Debug.Log($"Hit {target.name} for {dmg} dmg.");
-            target.HealthController.DoDamage(dmg);
+            target.HealthController?.DoDamage(dmg, AnimationTime);
             if (data != null)
             {
-                Debug.Log($"Add bleed to {target.name}");
                 target.StatusEffectsController.AddStatusEffect(BaseEffectData.Create(data, target));
             }
         }

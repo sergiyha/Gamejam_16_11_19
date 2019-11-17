@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Gamejam/Assets/Animations/Loot.meta
 guid: d76026961842dbf45a8ed935cef7f3d0
 folderAsset: yes
 DefaultImporter:
+=======
+guid: 20e5ba61d532cb3429506eb377e973f3
+NativeFormatImporter:
+>>>>>>> remotes/origin/UnitsAiming:Gamejam/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/AOTGenerationConfig.asset.meta
   externalObjects: {}
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

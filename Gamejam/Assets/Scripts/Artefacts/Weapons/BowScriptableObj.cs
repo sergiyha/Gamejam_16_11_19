@@ -11,7 +11,7 @@ public class BowScriptableObj : WeaponScriptableObject
         {
             int dmg =Random.Range(MinDamage,MaxDamage);
             Debug.Log($"Hit {target.name} for {dmg} dmg.");
-            target.HealthController.DoDamage(dmg);
+            target.HealthController.DoDamage(dmg, AnimationTime);
             if (data != null)
             {
                 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FPSTestProject.Helpers.Runtime.SoundManager;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
@@ -13,6 +14,8 @@ public class WeaponController : MonoBehaviour
     private Character character;
 
     private List<Character> targets = new List<Character>();
+
+    private float currentCooldown;
 
     private void Awake()
     {
@@ -27,12 +30,12 @@ public class WeaponController : MonoBehaviour
         {
             Weapon.DisableArtifact();
             Weapon = weapon;
-            Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
+            currentCooldown = Weapon.Cooldown/atackspeedMultipl;
         }
         else
         {
             Weapon = weapon;
-            Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
+            currentCooldown = Weapon.Cooldown/atackspeedMultipl;
             StartCoroutine(Use());
         }
     }
@@ -64,31 +67,28 @@ public class WeaponController : MonoBehaviour
     {
         while (true)
         {
-            Weapon.useAllowed = UseAllowed;
             //Debug.Log(Weapon.currentCooldown);
-            if (Weapon.currentCooldown > 0f)
+            if (currentCooldown > 0f)
             {
-                Weapon.currentCooldown -= Time.deltaTime;
+                currentCooldown -= Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
             else
             {
-                Weapon.ready = true;
-                Debug.Log("weapone ready");
                 if (UseAllowed)
                 {
                     LookForTargets();
                     if (targets.Count > 0)
                     {
                         //Weapon.useAllowed = UseAllowed;
-                        Debug.Log("Use");
 
                         Weapon.SetTargets(targets);
+
+                        SoundManager.Instance.PlaySFX(SoundManagerDatabase.GetRandomClip(Weapon.ActionSound), transform.position);
                         Weapon.Action();
-                        if (Weapon.ActionSound != null)
-                            character.AudioSource.PlayOneShot(Weapon.ActionSound);
-                        Weapon.currentCooldown = Weapon.Cooldown / atackspeedMultipl;
-                        Weapon.ready = false;
+
+                        currentCooldown = Weapon.Cooldown / atackspeedMultipl;
+
                         yield return new WaitForEndOfFrame();
                     }
                     else

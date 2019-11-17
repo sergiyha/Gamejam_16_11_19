@@ -1,14 +1,22 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class SquadInventory : Inventory
+﻿public class SquadInventory : Inventory
 {
-    public static SquadInventory Instance;
+    private static SquadInventory instance;
+
+    public static SquadInventory Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<SquadInventory>();
+            }
+
+            return instance;
+        }
+    }
 
     private void Awake()
     {
-        Instance = this;
+        instance = this;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Characters.Controllers;
 using LifelongAdventure.Creatures.Data;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class Character : MonoBehaviour
 
 	public CreatureStats Stats;
 
+    [NonSerialized]
 	public CreatureStats InitialStats;
 
 	public HealthController HealthController;
@@ -20,7 +22,6 @@ public class Character : MonoBehaviour
 	public StatusEffectsController StatusEffectsController;
 	public UiController UiController;
 	public ArctifactsController ArctifactsController;
-	public AudioSource AudioSource;
 
 	public enum CharType
 	{
@@ -43,7 +44,6 @@ public class Character : MonoBehaviour
 
 		Characters[CharacterType].Add(this);
 		StatusEffectsController = GetComponent<StatusEffectsController>();
-		AudioSource = GetComponent<AudioSource>();
 		WeaponController = GetComponent<WeaponController>();
 		HealthController = GetComponent<HealthController>();
 		ArctifactsController = GetComponent<ArctifactsController>();

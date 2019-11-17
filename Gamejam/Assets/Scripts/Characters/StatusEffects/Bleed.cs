@@ -21,7 +21,7 @@
         
         public override void ApplyEffect()
         {
-            character.HealthController.DoDamage(Data.damagePerTick);
+            character.HealthController.DoDamage(Data.damagePerTick, -1);
         }
     }
 }

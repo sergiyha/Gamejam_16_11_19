@@ -16,7 +16,7 @@ MonoBehaviour:
   Name: Bow
   Description: Nice strong bow
   StatusEffectIcon: {fileID: 0}
-  InventoryIcon: {fileID: 0}
+  InventoryIcon: {fileID: 21300000, guid: 0959fbfc450ff5d4e950610000823d0a, type: 3}
   ArtefactType: 0
   MinDamage: 4
   MaxDamage: 6
@@ -24,10 +24,6 @@ MonoBehaviour:
   Cooldown: 3
   AnimationTime: 1.5
   Angle: 45
-  ActionSound: {fileID: 0}
-  ImpactSound: {fileID: 0}
+  ActionSound: 1500
   aoc: {fileID: 0}
-  useAllowed: 0
-  ready: 0
-  currentCooldown: 0
   data: {fileID: 0}

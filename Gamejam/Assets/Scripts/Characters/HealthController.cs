@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FPSTestProject.Helpers.Runtime.SoundManager;
 using LifelongAdventure.Creatures.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -20,10 +21,27 @@ public class HealthController : MonoBehaviour
         UpdateHealth();
     }
 
-    public void DoDamage(int value)
+	private void CheckDead()
+	{
+		if(character.Stats[Stat.Health]<=0)
+            Destroy(this.gameObject);
+	}
+
+
+    public void DoDamage(int value, float delay)
     {
-        character.Stats[Stat.Health] -= value;
-        UpdateHealth();
+        if (delay <= 0)
+        {
+            if (character.Stats[Stat.Health] > 0)
+            {
+                character.Stats[Stat.Health] -= value;
+                UpdateHealth();
+                SoundManager.Instance.PlaySFX(SoundManagerDatabase.GetRandomClip(SoundType.TakeDamage), transform.position, 1, transform);
+                CheckDead();
+            }
+        }
+        else
+            StartCoroutine(ApplyDamage(value, delay));
     }
 
     public void DoHeal(int value)
@@ -37,9 +55,17 @@ public class HealthController : MonoBehaviour
         character.UiController.UpdateHealth(character.Stats[Stat.Health], character.InitialStats[Stat.Health]);
     }
 
-    [Button]
-    public void Test()
+    private IEnumerator ApplyDamage(int value, float delay)
     {
-        DoDamage(3);
+        yield return new WaitForSeconds(delay);
+
+        if (character.Stats[Stat.Health] > 0)
+        {
+            character.Stats[Stat.Health] -= value;
+            UpdateHealth();
+            SoundManager.Instance.PlaySFX(SoundManagerDatabase.GetRandomClip(SoundType.TakeDamage), transform.position, 1, transform);
+            CheckDead();
+        }
     }
+
 }

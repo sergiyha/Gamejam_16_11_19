@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class InventorySlot : MonoBehaviour, IItemHolder
 {
-    private DraggableItem currentItem;
+    protected DraggableItem currentItem;
 
     public DraggableItem Item => currentItem;
 
     public IEnumerable<DraggableItem> Items => new DraggableItem[] {currentItem};
 
-    public bool AddItem(DraggableItem draggableItem)
+    public virtual bool AddItem(DraggableItem draggableItem)
     {
         if (currentItem != null)
             return false;
@@ -22,9 +22,20 @@ public class InventorySlot : MonoBehaviour, IItemHolder
         return true;
     }
 
-    public void RemoveItem(DraggableItem item)
+    public virtual void RemoveItem(DraggableItem item)
     {
         if (item == currentItem)
             currentItem = null;
+    }
+
+    public virtual void ReplaceItem(DraggableItem item)
+    {
+        if (currentItem != null)
+        {
+            Destroy(currentItem.gameObject);
+            currentItem = null;
+        }
+
+        AddItem(item);
     }
 }
