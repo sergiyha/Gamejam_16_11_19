@@ -16,13 +16,13 @@ namespace Characters.StatusEffects
         {
             //Debug.Log("haste");
             character.Stats[Stat.MoveSpeed] = (int)(character.Stats[Stat.MoveSpeed] * Data.speedMultiplier);
-            character.StatusEffectsController.hasteFX.SetActive(true);
+            //character.StatusEffectsController.hasteFX.SetActive(true);
         }
 
         public override void Remove()
         {
             character.Stats[Stat.MoveSpeed] = (int)(character.Stats[Stat.MoveSpeed] / Data.speedMultiplier);
-            character.StatusEffectsController.hasteFX.SetActive(false);
+            //character.StatusEffectsController.hasteFX.SetActive(false);
         }
 
         public Slow(BaseEffectData data, Character character) : base(data, character)

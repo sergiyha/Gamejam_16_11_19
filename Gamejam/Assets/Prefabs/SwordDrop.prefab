@@ -5080,7 +5080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7121183789f54b54591489a78433ef22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ArtifactScriptable: {fileID: 11400000, guid: cae40242a1cf86446831ad61f4ef769c, type: 2}
+  ArtifactScriptable: {fileID: 11400000, guid: 5e352d1dddaa90a44ae14b8d0ece1e08, type: 2}
   pickupTime: 1.5
 --- !u!135 &1572393638622631067
 SphereCollider:

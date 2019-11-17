@@ -16,7 +16,7 @@ MonoBehaviour:
   Name: Rage standart
   Description: Standart that empowers your squad.
   StatusEffectIcon: {fileID: 21300000, guid: 8144ecc48a534844c907639faaa190f9, type: 3}
-  InventoryIcon: {fileID: 21300000, guid: cb38d96d4ce7af1499b42de063637d96, type: 3}
+  InventoryIcon: {fileID: 21300000, guid: 8144ecc48a534844c907639faaa190f9, type: 3}
   ArtefactType: 1
   Range: 20
   Angle: 180
