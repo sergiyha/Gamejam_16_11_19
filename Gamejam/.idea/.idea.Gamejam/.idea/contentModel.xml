@@ -114,6 +114,9 @@
               <e p="HasteBoots" t="Include">
                 <e p="HasteBootsScriptable.cs" t="Include" />
               </e>
+              <e p="RageStandart" t="Include">
+                <e p="RageStandartScriptable.cs" t="Include" />
+              </e>
               <e p="UsableArtifact.cs" t="Include" />
             </e>
             <e p="Weapons" t="Include">

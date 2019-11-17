@@ -1,11 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 [CreateAssetMenu]
-public class HasteBootsScriptable : UsableArtifact
+public class RageStandartScriptable : UsableArtifact
 {
     public override bool CanPerform()
     {
+        bool can = true;
+        foreach (var target in targets)
+        {
+            if (target.WeaponController.LookForTargets().Count == 0)
+            {
+                return false;
+            }
+        }
+
         return true;
     }
 

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d64960f961b87459014bf604b8bd9e, type: 3}
+  m_Name: Haste Boots Scriptable
+  m_EditorClassIdentifier: 
+  SlotIcon: {fileID: 0}
+  Name: Haste boots
+  Description: Powerfull artifact that incease nearby allys.
+  StatusEffectIcon: {fileID: 0}
+  InventoryIcon: {fileID: 0}
+  ArtefactType: 1
+  Range: 20
+  Angle: 180
+  Cooldown: 10
+  animationTime: 1
+  ActionSound: {fileID: 0}
+  ImpactSound: {fileID: 0}
+  useAllowed: 1
+  ready: 1
+  currentCooldown: 0
+  data: {fileID: 0}
+  point: {x: 0, y: 0, z: 0}
+  effectRadius: 0
+  TargetType: 1

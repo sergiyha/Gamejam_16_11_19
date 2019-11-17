@@ -37,7 +37,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    private void LookForTargets()
+    public List<Character> LookForTargets()
     {
         targets.Clear();
 
@@ -56,6 +56,8 @@ public class WeaponController : MonoBehaviour
                 i--;
             }
         }
+
+        return targets;
     }
 
     public IEnumerator Use()

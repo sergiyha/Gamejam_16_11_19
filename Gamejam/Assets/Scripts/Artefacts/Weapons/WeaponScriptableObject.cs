@@ -11,7 +11,9 @@ public class WeaponScriptableObject : ArtifactBase
     public float Cooldown;
     public float AnimationTime;
     public int Angle;
-    
+    public Vector3 point;
+    public float effectRadius;
+    public TargetType TargetType;
     public AudioClip ActionSound;
     public AudioClip ImpactSound;
     
