@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb424da13531e04429b2d1490c9bfaff, type: 3}
-  m_Name: Sword
+  m_Name: BotAxe
   m_EditorClassIdentifier: 
   SlotIcon: {fileID: 0}
   Name: 'Sword '
@@ -25,5 +25,5 @@ MonoBehaviour:
   AnimationTime: 1
   Angle: 45
   ActionSound: 200
-  aoc: {fileID: 22100000, guid: b299b4af963ace141a53b22293c8d393, type: 2}
+  aoc: {fileID: 22100000, guid: b3fdb3495860c7345b61526ad2bb69e5, type: 2}
   data: {fileID: 11400000, guid: 356c163596c381145b747130ded25eea, type: 2}

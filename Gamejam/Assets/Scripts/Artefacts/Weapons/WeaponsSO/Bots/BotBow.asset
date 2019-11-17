@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b289fd01cc6eb84a83c68fcdb34516b, type: 3}
-  m_Name: Creatures Scriptable Obj
+  m_Name: BotBow
   m_EditorClassIdentifier: 
   SlotIcon: {fileID: 0}
   Name: Bow
@@ -25,6 +25,6 @@ MonoBehaviour:
   AnimationTime: 1.5
   Angle: 45
   ActionSound: 1500
-  aoc: {fileID: 22100000, guid: 08146e36e25d2a94e8d6a34f4e15d629, type: 2}
+  aoc: {fileID: 22100000, guid: b3fdb3495860c7345b61526ad2bb69e5, type: 2}
   data: {fileID: 0}
   ps: {fileID: 4299976643880601991, guid: 37d1878e5a03c7e45b2123902e344102, type: 3}

@@ -23,9 +23,10 @@ public class HealthController : MonoBehaviour
 
 	private void CheckDead()
 	{
-		if(character.Stats[Stat.Health]<=0)
-            Destroy(this.gameObject);
-	}
+		if(character.Stats[Stat.Health]>0)
+            return;
+        character.DoDeath();
+    }
 
 
     public void DoDamage(int value, float delay)

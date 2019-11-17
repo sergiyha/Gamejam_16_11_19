@@ -1,15 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using AI;
 using Characters.Controllers;
 using LifelongAdventure.Creatures.Data;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Character : MonoBehaviour
 {
 	public static Dictionary<CharType, List<Character>> Characters = new Dictionary<CharType, List<Character>>();
 
+    public event Action<Character> OnDead = delegate { };
+
 	public CharType CharacterType;
 	public Sprite Icon;
+
+    public bool IsDead { get; protected set; }
 
 	public CreatureStats Stats;
 
@@ -70,4 +77,29 @@ public class Character : MonoBehaviour
 		AimingModule = GetComponent<PlayerAimModule>();
 		//WeaponController.AddWeapon(debugWeapon);
 	}
+
+    [Button]
+    public void DoDeath()
+    {
+        if (Characters.ContainsKey(CharacterType))
+            Characters[CharacterType].Remove(this);
+
+        IsDead = true;
+        AnimationController.DoDeath();
+        GetComponent<NavMeshAgent>().enabled = false;
+
+        StatusEffectsController.enabled = false;
+        WeaponController.enabled = false;
+        if (ArctifactsController != null)
+            ArctifactsController.enabled = false;
+        if (AimingModule != null)
+            AimingModule.enabled = false;
+
+        transform.parent = null;
+        OnDead(this);
+        Destroy(gameObject, 5);
+
+        if (CharacterType == CharType.Bot)
+            GetComponent<BotBrain>().enabled = false;
+    }
 }

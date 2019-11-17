@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
 		_meleeContainer.AddTargets(_meleAgentsPositions);
 
 		_rangeContainer.AddAgents(_rangeAgents);
-		_rangeContainer.AddTargets(_rangedAgentsPositions);
+        _rangeContainer.AddTargets(_rangedAgentsPositions);
 	}
 
 	// Start is called before the first frame update

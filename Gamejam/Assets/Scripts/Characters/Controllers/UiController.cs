@@ -22,7 +22,7 @@ namespace Characters.Controllers
         {
             if (character.CharacterType == Character.CharType.Player)
             {
-                var data = PlayerHudController.Instance.GetCharacterPanel(character.Icon);
+                var data = PlayerHudController.Instance.GetCharacterPanel(character);
                 healthSlider = data.Item1;
                 healthGrid = data.Item2;
 

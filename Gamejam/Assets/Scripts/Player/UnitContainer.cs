@@ -16,14 +16,33 @@ public class UnitContainer
 
 	public void UpdateChars(List<Character> chars)
 	{
-		_characters = chars;
-	}
+        foreach (Character character in chars)
+        {
+            if (!_characters.Contains(character))
+            {
+                _characters.Add(character);
+                character.OnDead += CharacterOnOnDead;
+            }
+        }
 
-	public UnitContainer(Transform parent, List<Character> characters )
+    }
+
+    private void CharacterOnOnDead(Character character)
+    {
+        _characters.Remove(character);
+        _agents = _characters.Select(c => c.GetComponent<NavMeshAgent>()).ToArray();
+    }
+
+    public UnitContainer(Transform parent, List<Character> characters )
 	{
 		_parent = parent;
 		_characters = characters;
-	}
+
+        foreach (var character in _characters)
+        {
+            character.OnDead += CharacterOnOnDead;
+        }
+    }
 
 	private readonly Transform _parent;
 
