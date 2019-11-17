@@ -107,6 +107,7 @@
           </e>
           <e p="Animation" t="Include">
             <e p="CharacterAnimationController.cs" t="Include" />
+            <e p="SetWeightWhenAttack.cs" t="Include" />
           </e>
           <e p="Artefacts" t="Include">
             <e p="ArtifactBase.cs" t="Include" />
