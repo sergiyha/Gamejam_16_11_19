@@ -30,6 +30,7 @@ public class HealthController : MonoBehaviour
 
     public void DoDamage(int value, float delay)
     {
+        delay = -1;
         if (delay <= 0)
         {
             if (character.Stats[Stat.Health] > 0)
