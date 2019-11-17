@@ -14,15 +14,19 @@ namespace Assets.Scripts.Environment
 		[SerializeField] private int _width;
 		[SerializeField] private int _height;
 		[SerializeField] private RoomCreator _roomCreator;
+        [SerializeField] private Transform _players;
 
-		private int _minRoomSize = 1;
+        private int _minRoomSize = 1;
 		private int _maxRoomSizeExclude = 4;
 		private int _emptyMap = -1;
 		private int _roomSize = 10;
 
+        public Vector3 StartRoomCenter { get; private set; }
+        public Vector3 EndRoomCenter { get; private set; }
 
-		// Start is called before the first frame update
-		void Start()
+
+        // Start is called before the first frame update
+        void Start()
 		{
 			GenerateMap(out var map, out var rooms);
 
@@ -41,7 +45,9 @@ namespace Assets.Scripts.Environment
 			var startRoom = map[startX + startY * _width];
 			var endRoom = map[endX + endY * _width];
 
-			var path = GetLongestPath(rooms, startRoom, endRoom);
+            
+
+            var path = GetLongestPath(rooms, startRoom, endRoom);
 			Debug.Log(String.Join(" ", path));
 			var doors = new int[rooms.Count, rooms.Count];
 			var prevRoom = path[0];
@@ -85,18 +91,27 @@ namespace Assets.Scripts.Environment
 				meshBacker.meshCombiner.resultSceneObject = room.GameObject;
 				meshBacker.resultPrefab = room.GameObject;
 				var gos = meshFilters.Select(s => s.gameObject).ToArray();
-				/*foreach (var gop in gos.Select(s => s.transform.parent).Distinct())
+				foreach (var gop in gos.Select(s => s.transform.parent).Distinct())
 				{
 					Destroy(gop.gameObject);
-				}*/
+				}
 
-				//meshBacker.AddDeleteGameObjects(gos, null, true);
+				meshBacker.AddDeleteGameObjects(gos, null, true);
 
-				//meshBacker.meshCombiner.Apply();
-			}
+				meshBacker.meshCombiner.Apply();
 
-			return;
-		}
+                room.GameObject.transform.GetChild(room.GameObject.transform.childCount - 1).gameObject.AddComponent<NavMeshSourceTag>();
+
+                //StartRoomCenter = rooms[startRoom].StartPosition + rooms[startRoom].SceneSize / 2;
+
+            }
+            StartRoomCenter = rooms[startRoom].StartPosition + rooms[startRoom].SceneSize / 2;
+
+            EndRoomCenter = rooms[endRoom].StartPosition + rooms[endRoom].SceneSize / 2;
+            Debug.LogError(EndRoomCenter);
+
+            _players.transform.position = StartRoomCenter;
+        }
 
 		private List<int> GetLongestPath(List<Room> rooms, int startRoom, int endRoom)
 		{

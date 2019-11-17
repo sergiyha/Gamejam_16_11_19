@@ -66,7 +66,7 @@ namespace Assets.Scripts.Environment
 			room.StartPosition = mapPosition + new Vector3(room.OnMapPositionX * tilesPerRoom * _tileSize, 0,
 				                     -room.OnMapPositionY * tilesPerRoom * _tileSize);
 			room.SceneSize = new Vector3(room.MapWidth * tilesPerRoom * _tileSize, 0,
-				room.MapWidth * tilesPerRoom * _tileSize);
+				-room.MapHeight * tilesPerRoom * _tileSize);
 
 
 			// TODO: door position, not corner, connection direction
@@ -241,6 +241,9 @@ namespace Assets.Scripts.Environment
 					}
 
 					border = isDoor ? door : wall;
+
+                    if(isDoor)
+                        continue;
 
 					// wall
 					if (y == 0)
