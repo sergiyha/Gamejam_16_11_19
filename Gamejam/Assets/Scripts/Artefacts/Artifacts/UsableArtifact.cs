@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using FPSTestProject.Helpers.Runtime.SoundManager;
 using UnityEngine;
 
 public enum TargetType
@@ -15,8 +16,8 @@ public class UsableArtifact : ArtifactBase
     public int Angle;
     public float Cooldown;
     public float animationTime;
-    public AudioClip ActionSound;
-    public AudioClip ImpactSound;
+    public SoundType ActionSound;
+    //public AudioClip ImpactSound;
     
     public bool useAllowed;
     public bool ready = false;

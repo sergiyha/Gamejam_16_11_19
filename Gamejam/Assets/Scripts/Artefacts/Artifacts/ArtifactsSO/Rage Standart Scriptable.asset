@@ -22,10 +22,9 @@ MonoBehaviour:
   Angle: 180
   Cooldown: 5
   animationTime: 0
-  ActionSound: {fileID: 0}
-  ImpactSound: {fileID: 0}
+  ActionSound: 1800
   useAllowed: 1
-  ready: 1
+  ready: 0
   currentCooldown: 0
   data: {fileID: 0}
   point: {x: 0, y: 0, z: 0}

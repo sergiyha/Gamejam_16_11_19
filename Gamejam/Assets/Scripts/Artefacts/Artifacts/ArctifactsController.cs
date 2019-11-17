@@ -1,87 +1,88 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using FPSTestProject.Helpers.Runtime.SoundManager;
 using UnityEngine;
 
 public class ArctifactsController : MonoBehaviour
 {
     public int capacity;
     public List<UsableArtifact> Artifacts;
+    public List<float> currentCooldowns;
+    
     public float atackspeedMultipl =1f;//==1f if normal
     public bool UseAllowed;
     
     private Character character;
 
-    private List<Character> targets;
+    private List<List<Character>> allArtifactsTarg;
+    
 
     private void Awake()
     {
+        allArtifactsTarg = new List<List<Character>>();
         character = GetComponent<Character>();
-       //AddWeapon(Weapon);
+        StartCoroutine(Use());
+      
     }
 
     
     public void AddArtifact(UsableArtifact artifact)
     {
         Artifacts.Add(artifact);
-      /*  if (Weapon != null)
-        {
-            Weapon.DisableArtifact();
-            Weapon = weapon;
-            Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
-        }
-        else
-        {
-            Weapon = weapon;
-            Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
-            StartCoroutine(Use());
-        }*/
+        var tmp = new List<Character>();
+        allArtifactsTarg.Add(tmp);
+        currentCooldowns.Add(0.5f);
     }
 
-    private void LookForTargets()
+    public List<Character> LookForTargets(UsableArtifact artifact, int index)
     {
-        targets.Clear();
-
+        //allArtifactsTarg[index].Clear();
+        allArtifactsTarg[index] = new List<Character>();
         foreach (var characters in Character.Characters)
         {
             if(characters.Key != character.CharacterType)
-                targets.AddRange(characters.Value);
+                allArtifactsTarg[index].AddRange(characters.Value);
         }
 
-        for (int i = 0; i < targets.Count; i++)
+        for (int i = 0; i < allArtifactsTarg[index].Count; i++)
         {
-           /* if (Vector3.Distance(targets[i].transform.position, transform.position) > Weapon.Range
-                || Vector3.Angle(transform.forward, (targets[i].transform.position - transform.position).normalized) <= Weapon.Angle)
+            if (Vector3.Distance(allArtifactsTarg[index][i].transform.position, transform.position) > artifact.Range
+                || Vector3.Angle(transform.forward, (allArtifactsTarg[index][i].transform.position - transform.position).normalized) <= artifact.Angle)
             {
-                targets.RemoveAt(i);
+                allArtifactsTarg[index].RemoveAt(i);
                 i--;
-            }*/
+            }
         }
+
+        return allArtifactsTarg[index];
     }
 
     public IEnumerator Use()
-    {/*
+    {
         while (true)
         {
-            foreach (var artifact in Artifacts)
+            for (int i=0; i<Artifacts.Count; i++)
             {
-                Debug.Log(artifact.currentCooldown);
-                if (Weapon.currentCooldown > 0f)
+                //Debug.Log(Artifacts[i].name + " " +Artifacts[i].currentCooldown );
+                if (currentCooldowns[i] > 0f)
                 {
                 
-                    Weapon.currentCooldown -= Time.deltaTime;
-                    Debug.Log("Use");
+                    currentCooldowns[i] -= Time.deltaTime;
+                    //Debug.Log("Cd");
                     yield return new WaitForEndOfFrame();
                 }
                 else
                 {
-                    Weapon.ready = true;
-                    if (UseAllowed)
+                    LookForTargets(Artifacts[i],i);
+                    Artifacts[i].SetTargets(allArtifactsTarg[i]);
+                    Artifacts[i].ready = true;
+                    if (Artifacts[i].CanPerform())
                     {
-                        Weapon.SetTargets(targets);
-                        Weapon.Action();
-                        character.AudioSource.PlayOneShot(Weapon.ActionSound);
-                        Weapon.currentCooldown = Weapon.Cooldown/atackspeedMultipl;
-                        Weapon.ready = false;
+                        
+                        Artifacts[i].Action();
+                        SoundManager.Instance.PlaySFX(SoundManagerDatabase.GetRandomClip(Artifacts[i].ActionSound), transform.position,2f);
+                        currentCooldowns[i] = Artifacts[i].Cooldown/atackspeedMultipl;
+                        Artifacts[i].ready = false;
                         yield return new WaitForEndOfFrame();
                     }
                     else
@@ -90,8 +91,9 @@ public class ArctifactsController : MonoBehaviour
                     }
                 }
             }
+            yield return new WaitForEndOfFrame();
         
-        }*/
+        }
         yield return null;
     }
 }

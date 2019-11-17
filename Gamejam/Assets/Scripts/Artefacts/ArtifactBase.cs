@@ -10,7 +10,7 @@ public class ArtifactBase : ScriptableObject
     public Sprite StatusEffectIcon;
     public Sprite InventoryIcon;
     public ItemType ArtefactType;
-    protected List<Character> targets;
+    protected List<Character> targets = new List<Character>();
     
     public virtual void Action()
     {
