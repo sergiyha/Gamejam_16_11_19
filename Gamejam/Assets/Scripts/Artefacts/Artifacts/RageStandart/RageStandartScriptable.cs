@@ -22,6 +22,7 @@ public class RageStandartScriptable : UsableArtifact
 
     public override void Action()
     {
+        Debug.Log("Use rage");
         base.Action();
         foreach (var target in targets)
         {
