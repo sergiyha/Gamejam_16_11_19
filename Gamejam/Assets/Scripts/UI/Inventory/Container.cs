@@ -5,11 +5,15 @@ using UnityEngine;
 public class Container : MonoBehaviour, IItemHolder
 {
     [SerializeField]
+    protected ArtifactItem prefab;
+    [SerializeField]
+    protected Transform dragContainer;
+    [SerializeField]
     protected Transform holder;
     [SerializeField]
     private int maxCount = -1;
 
-    private List<DraggableItem> items = new List<DraggableItem>();
+    protected List<DraggableItem> items = new List<DraggableItem>();
 
     public DraggableItem Item => items.Count >= 1 ? items[0] : null;
 

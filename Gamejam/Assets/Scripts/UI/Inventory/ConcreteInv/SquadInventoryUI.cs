@@ -4,18 +4,13 @@ namespace UI.Inventory
 {
     public class SquadInventoryUI : Container
     {
-        [SerializeField]
-        private ArtifactItem prefab;
-
-        [SerializeField]
-        private Transform dragContainer;
-
         private void OnEnable()
         {
             foreach (var artifact in SquadInventory.Instance.artifacts)
             {
                 var item = Instantiate(prefab.gameObject, holder).GetComponent<ArtifactItem>();
                 item.Init(artifact, dragContainer);
+                items.Add(item);
             }
             SquadInventory.Instance.OnItemAdded += InstanceOnOnItemAdded;
         }

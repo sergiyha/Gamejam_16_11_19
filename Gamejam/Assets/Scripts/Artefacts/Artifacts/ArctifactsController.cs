@@ -20,7 +20,7 @@ public class ArctifactsController : MonoBehaviour
     }
 
     
-    public void AddArtifact(WeaponScriptableObject weapon)
+    public void AddArtifact(ArtifactScrObj artifact)
     {
         
       /*  if (Weapon != null)

@@ -1076,10 +1076,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 765090231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89e47deccde3064ba460de9c908a0df, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b6ef68d0da847edb9a276fa9898834e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holder: {fileID: 1070606931}
+  prefab: {fileID: 0}
+  dragContainer: {fileID: 0}
+  holder: {fileID: 1694659945}
   maxCount: -1
 --- !u!114 &765090234
 MonoBehaviour:
@@ -1734,6 +1736,7 @@ MonoBehaviour:
   portraits: {fileID: 886430927}
   icon: {fileID: 2014418916}
   weaponSlot: {fileID: 376205983}
+  artifactsContainer: {fileID: 765090233}
   artifactItemPrefab: {fileID: 1872169735790396622, guid: 8a45c2a5f5c3fe642beff5fc996846df,
     type: 3}
 --- !u!1 &1111277890
@@ -2310,10 +2313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7830e9e7b39746fd9213f47b244abe29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holder: {fileID: 774472441}
-  maxCount: -1
   prefab: {fileID: 2967489136832178919, guid: 8a45c2a5f5c3fe642beff5fc996846df, type: 3}
   dragContainer: {fileID: 31050919}
+  holder: {fileID: 774472441}
+  maxCount: -1
 --- !u!1 &1524879161
 GameObject:
   m_ObjectHideFlags: 0

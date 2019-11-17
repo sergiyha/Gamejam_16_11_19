@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.UI.Inventory.ConcreteInv;
 using UI.Inventory;
 using UI.Inventory.ConcreteInv;
 using UnityEngine;
@@ -15,6 +16,8 @@ namespace UI.DetailPanel
         private Image icon;
         [SerializeField]
         private WeaponSlot weaponSlot;
+        [SerializeField]
+        private ArtifactsContainer artifactsContainer;
 
         [SerializeField]
         private GameObject artifactItemPrefab;
@@ -26,6 +29,13 @@ namespace UI.DetailPanel
         {
             weaponSlot.OnAddItem += WeaponSlotOnOnAddItem;
             weaponSlot.OnRemoveItem += WeaponSlotOnOnRemoveItem;
+
+            artifactsContainer.OnAddArtifact += ArtifactsContainerOnOnAddArtifact;
+        }
+
+        private void ArtifactsContainerOnOnAddArtifact(ArtifactItem obj)
+        {
+            currentCharacter.ArctifactsController.AddArtifact((ArtifactScrObj) obj.Item);
         }
 
         private void WeaponSlotOnOnRemoveItem(ArtifactItem obj)
@@ -82,6 +92,7 @@ namespace UI.DetailPanel
             weaponItem.transform.localScale = Vector3.one;
 
             weaponSlot.ReplaceItem(weaponItem);
+            artifactsContainer.Set(character.ArctifactsController.Artifacts);
         }
 
         private void OnDisable()
