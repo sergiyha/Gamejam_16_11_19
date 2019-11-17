@@ -6,5 +6,5 @@ public class RageEffectData : BaseEffectData
 {
     public float tickTime;
     public float totalTime;
-    public float additionaAS = 0.2f;
+    public float additionaAS = 0.3f;
 }
