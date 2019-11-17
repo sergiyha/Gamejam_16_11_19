@@ -10,12 +10,12 @@ PrefabInstance:
     - target: {fileID: 1572393638622631064, guid: 62698a1140f8af747bf02a277a269b49,
         type: 3}
       propertyPath: m_Name
-      value: RageHorn
+      value: SpeedShtandart
       objectReference: {fileID: 0}
     - target: {fileID: 1572393638622631060, guid: 62698a1140f8af747bf02a277a269b49,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.6
+      value: 5.9
       objectReference: {fileID: 0}
     - target: {fileID: 1572393638622631060, guid: 62698a1140f8af747bf02a277a269b49,
         type: 3}
@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 1572393638622631060, guid: 62698a1140f8af747bf02a277a269b49,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.8
+      value: -11.7
       objectReference: {fileID: 0}
     - target: {fileID: 1572393638622631060, guid: 62698a1140f8af747bf02a277a269b49,
         type: 3}
@@ -67,37 +67,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 818635844, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.15
+      objectReference: {fileID: 0}
     - target: {fileID: 991761319, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.35
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 991761319, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 991761319, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 991761319, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 33456370, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
       propertyPath: m_InnerSpotAngle
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
       propertyPath: InitialModule.startColor.minMaxState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.14694063
+      objectReference: {fileID: 0}
+    - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.9073796
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: -2.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 0.5471698
+      objectReference: {fileID: 0}
+    - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.034687538
+      objectReference: {fileID: 0}
+    - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0.007742955
       objectReference: {fileID: 0}
     - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
       propertyPath: TrailModule.colorOverLifetime.maxGradient.key1.r
@@ -111,13 +139,29 @@ PrefabInstance:
       propertyPath: TrailModule.colorOverLifetime.maxGradient.key1.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key1.g
+      value: 0.42231733
+      objectReference: {fileID: 0}
+    - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key1.b
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 991761321, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
       propertyPath: InitialModule.startRotationX.scalar
-      value: 3.7477453
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 991761321, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
       propertyPath: InitialModule.startRotation.scalar
-      value: -0.071907565
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 991761321, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
+      propertyPath: RotationModule.enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 991761320, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
       propertyPath: m_RenderAlignment
@@ -126,6 +170,6 @@ PrefabInstance:
     - target: {fileID: 991761320, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: 42a9642fffa0845468cea26dad0d1f67, type: 3}
+      objectReference: {fileID: 4300000, guid: f26aa914d740efc44bdd254a731404e6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
