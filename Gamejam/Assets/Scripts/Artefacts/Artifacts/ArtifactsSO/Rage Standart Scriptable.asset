@@ -26,7 +26,7 @@ MonoBehaviour:
   useAllowed: 1
   ready: 0
   currentCooldown: 0
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: 2a842e6f8b4b0fb458e05402d76a520d, type: 2}
   point: {x: 0, y: 0, z: 0}
   effectRadius: 0
   TargetType: 1

@@ -24,9 +24,9 @@ MonoBehaviour:
   animationTime: 1
   ActionSound: 1400
   useAllowed: 1
-  ready: 1
+  ready: 0
   currentCooldown: 0
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: b429f4e9ec349984bb4cd77978a57ced, type: 2}
   point: {x: 0, y: 0, z: 0}
   effectRadius: 0
   TargetType: 1

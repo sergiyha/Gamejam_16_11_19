@@ -10,5 +10,6 @@ public class HasteEffectData : BaseEffectData
     public float speedMultiplier = 1.5f;
 
 
+    
 }
 
