@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
 		_meleeContainer.AddTargets(_meleAgentsPositions);
 
 		_rangeContainer.AddAgents(_rangeAgents);
-		_rangeContainer.AddTargets(_rangedAgentsPositions);
+        _rangeContainer.AddTargets(_rangedAgentsPositions);
 	}
 
 	// Start is called before the first frame update
@@ -137,8 +137,8 @@ public class PlayerController : MonoBehaviour
 	private void MoveAgents()
 	{
 		//MoveMelee();
-		_meleeContainer.Move();
-		_rangeContainer.Move();
+		_meleeContainer.Move(_directionObject.forward);
+		_rangeContainer.Move(_directionObject.forward);
 	}
 
 	private void MoveUnits()

@@ -36,11 +36,13 @@ namespace UI
             instance = this;
         }
 
-        public (Slider, Transform, Transform) GetCharacterPanel(Sprite icon)
+        public (Slider, Transform, Transform) GetCharacterPanel(Character character)
         {
             var portrait = Instantiate(playerPortraitPrefab, portraitsHolder).GetComponent<PlayerPortrait>();
             portrait.gameObject.SetActive(true);
-            portrait.icon.sprite = icon;
+            portrait.icon.sprite = character.Icon;
+
+            character.OnDead += (chara) => { Destroy(portrait.gameObject); };
 
             return (portrait.helthBar, portrait.helthGrid, portrait.effectsGrid);
         }

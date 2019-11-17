@@ -23,11 +23,10 @@ public class HealthController : MonoBehaviour
 
 	private void CheckDead()
 	{
-        
-		if(character.Stats[Stat.Health]<=0)
-            Destroy(this.gameObject);
-        
-	}
+		if(character.Stats[Stat.Health]>0)
+            return;
+        character.DoDeath();
+    }
 
 
     public void DoDamage(int value, float delay)
@@ -47,7 +46,7 @@ public class HealthController : MonoBehaviour
             StartCoroutine(ApplyDamage(value, delay));
     }
 
-    public void DoHeal(int value, float delay)
+    public void DoHeal(int value)
     {
         character.Stats[Stat.Health] += value;
         UpdateHealth();

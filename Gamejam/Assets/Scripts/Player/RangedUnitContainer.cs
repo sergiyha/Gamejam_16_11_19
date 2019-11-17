@@ -8,13 +8,15 @@ public class RangedUnitContainer : UnitContainer
 	{
 	}
 
-	public override void Move()
+	public override void Move(Vector3 forward)
 	{
-		for (var i = 0; i < _agents.Length; i++)
-		{
-			_agents[i].destination = _localTargets[i].position;
-		}
-	}
+        for (var i = 0; i < _agents.Length; i++)
+        {
+            _agents[i].destination = _localTargets[i].position;
+            _agents[i].updateRotation = false;
+            _agents[i].transform.forward = forward;
+        }
+    }
 
 	public void TryAttack()
 	{
@@ -33,8 +35,8 @@ public class RangedUnitContainer : UnitContainer
 		for (int i = 0; i < _characters.Count; i++)
 		{
 			_characters[i].AimingModule.Aim(enemy.Character.transform);
-		}
-	}
+        }
+    }
 
 
 

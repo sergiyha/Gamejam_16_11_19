@@ -29,6 +29,8 @@ namespace AI
 
         private Character self;
         private WeaponController weaponController;
+
+        private float lastPatroolTime;
         
         private void Start()
         {
@@ -68,7 +70,8 @@ namespace AI
                     else if (cureDist <= lostDistance)
                     {
                         agent.isStopped = false;
-                        var needableDist = Vector3.Lerp(currentTarget.transform.position, transform.position, weaponController.Weapon.Range / cureDist);
+                        var needableDist = Vector3.Lerp(currentTarget.transform.position, transform.position,
+                            weaponController.Weapon.Range / cureDist);
                         agent.SetDestination(needableDist);
                         weaponController.UseAllowed = false;
                     }
@@ -88,7 +91,7 @@ namespace AI
                         foreach (var target in targets)
                         {
                             var dist = Vector3.Distance(target.transform.position, transform.position);
-                            if (dist < minDist/* && Vector3.Angle(transform.forward, (target.transform.position - transform.position).normalized) <=
+                            if (dist < minDist /* && Vector3.Angle(transform.forward, (target.transform.position - transform.position).normalized) <=
                                 viewAngle*/)
                             {
                                 minDist = dist;
@@ -104,24 +107,34 @@ namespace AI
                         {
                             if (Vector3.Distance(transform.position, agent.destination) < 0.2f)
                             {
+                                agent.isStopped = true;
+                            }
+
+                            if (Time.time - lastPatroolTime > 5)
+                            {
                                 var dest = Random.insideUnitSphere * patroolRange;
                                 dest.y = 0;
                                 agent.isStopped = false;
                                 agent.SetDestination(transform.position + dest);
+                                lastPatroolTime = Time.time;
                             }
                         }
-					}
-					else
-                    {
-	                    if (Vector3.Distance(transform.position, agent.destination) < 0.2f)
-	                    {
-		                    var dest = Random.insideUnitSphere * patroolRange;
-		                    dest.y = 0;
-		                    agent.isStopped = false;
-		                    agent.SetDestination(transform.position + dest);
-	                    }
                     }
-				}
+                    else
+                    {
+                        if (Time.time - lastPatroolTime > 3)
+                        {
+                            if (Vector3.Distance(transform.position, agent.destination) < 0.2f)
+                            {
+                                var dest = Random.insideUnitSphere * patroolRange;
+                                dest.y = 0;
+                                agent.isStopped = false;
+                                agent.SetDestination(transform.position + dest);
+                                lastPatroolTime = Time.time;
+                            }
+                        }
+                    }
+                }
             }
         }
 
