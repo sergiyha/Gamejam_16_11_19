@@ -1850,7 +1850,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capasity: 0
   artifacts: []
+<<<<<<< HEAD
   Weapon: {fileID: 11400000, guid: 965d6a3fd8b01a943b5362b0cbd01c54, type: 2}
+=======
+  Weapon: {fileID: 11400000, guid: 28b80d73129ee814b97a33245dffb677, type: 2}
+>>>>>>> origin/Pink
 --- !u!1 &5669609890758226404
 GameObject:
   m_ObjectHideFlags: 0
