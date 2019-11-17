@@ -73,7 +73,7 @@ namespace Characters.Controllers
             {
                 if (effectsContainer.GetChild(i).name.Equals(statusEffect.InstanceId.ToString()))
                 {
-                    Destroy(effectsContainer.GetChild(i));
+                    Destroy(effectsContainer.GetChild(i).gameObject);
                     return;
                 }
             }

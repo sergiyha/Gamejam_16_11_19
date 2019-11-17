@@ -16,6 +16,7 @@ public class StatusEffectsController : MonoBehaviour
     private void Awake()
     {
         character = GetComponent<Character>();
+        StartCoroutine(StatusUpdate());
     }
 
     private IEnumerator StatusUpdate()
@@ -24,10 +25,12 @@ public class StatusEffectsController : MonoBehaviour
         {
             if (StatusEffects.Count > 0)
             {
-                foreach (var effect in StatusEffects)
+                for (var index = 0; index < StatusEffects.Count; index++)
                 {
+                    var effect = StatusEffects[index];
                     if (!effect.active)
                     {
+                        Debug.Log(effect.InstanceId + " - " + effect.currentTotalTime + " - " + effect.TotalTime);
                         if (effect.currentTotalTime < effect.TotalTime)
                         {
                             effect.Tick();
@@ -35,14 +38,13 @@ public class StatusEffectsController : MonoBehaviour
                         else
                         {
                             RemoveStatusEffect(effect);
+                            index--;
                         }
                     }
                 }
             }
-            else
-            {
-                yield return new WaitForEndOfFrame();
-            }
+
+            yield return new WaitForEndOfFrame();
         }
     }
 
