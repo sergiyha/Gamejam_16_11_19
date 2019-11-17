@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 5669609890758226205}
   - component: {fileID: 4581225370889239201}
   - component: {fileID: 1201358262}
+  - component: {fileID: -1440185063721708645}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -267,6 +268,20 @@ MonoBehaviour:
   capasity: 0
   artifacts: []
   Weapon: {fileID: 11400000, guid: cae40242a1cf86446831ad61f4ef769c, type: 2}
+--- !u!114 &-1440185063721708645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669609890758226402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115dfe7b0938447cbbf9507076f54049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Tracked: {fileID: 5669609890757799362}
+  m_Size: {x: 10, y: 10, z: 10}
 --- !u!1001 &3260848594589869869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -347,22 +362,22 @@ PrefabInstance:
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.006333764
+      value: -0.040002882
       objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8621707
+      value: 0.8635874
       objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.50646365
+      value: 0.49779573
       objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.010782187
+      value: 0.06939792
       objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
@@ -539,6 +554,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: b3fdb3495860c7345b61526ad2bb69e5,
         type: 2}
+    - target: {fileID: -6057140222963153312, guid: ae9227448940f7b4386e114359bd5d16,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ae9227448940f7b4386e114359bd5d16,
         type: 3}
       propertyPath: m_LocalPosition.x

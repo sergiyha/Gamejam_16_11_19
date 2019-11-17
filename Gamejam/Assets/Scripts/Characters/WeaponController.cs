@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    
+	public Action<Character> OnWeaponChange;
     public WeaponScriptableObject Weapon;
     public float atackspeedMultipl =1f;//==1f if normal
     public bool UseAllowed;
@@ -32,9 +32,11 @@ public class WeaponController : MonoBehaviour
             Weapon.DisableArtifact();
         }
 
-        Weapon = weapon;
+
+		Weapon = weapon;
         currentCooldown = Weapon.Cooldown / atackspeedMultipl;
         character.AnimationController.SetController(Weapon.aoc);
+	    OnWeaponChange?.Invoke(character);
 
         StopAllCoroutines();
         StartCoroutine(Use());

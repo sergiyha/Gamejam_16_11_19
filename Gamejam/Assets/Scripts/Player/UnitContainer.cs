@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class UnitContainer 
 {
-	public void AddTargets(Transform[] targets)
+	public void AddTargets(List<Transform> targets)
 	{
 		_localTargets = targets;
 	}
@@ -27,13 +27,30 @@ public class UnitContainer
 
     }
 
-    private void CharacterOnOnDead(Character character)
+	public bool Contains(NavMeshAgent charNavMesh, Character character)
+	{
+		return _agents.Contains(charNavMesh) || _characters.Contains(character);
+	}
+
+	private void CharacterOnOnDead(Character character)
     {
         _characters.Remove(character);
-        _agents = _characters.Select(c => c.GetComponent<NavMeshAgent>()).ToArray();
+        _agents = _characters.Select(c => c.GetComponent<NavMeshAgent>()).ToList();
     }
 
-    public UnitContainer(Transform parent, List<Character> characters )
+	public void AddAgentAndCharacter(NavMeshAgent charNavMesh, Character character)
+	{
+		_agents.Add(charNavMesh);
+		_characters.Add(character);
+	}
+
+	public void RemoveCharacterAndAgent(NavMeshAgent charNavMesh, Character character)
+	{
+		_agents.Remove(charNavMesh);
+		_characters.Remove(character);
+	}
+
+	public UnitContainer(Transform parent, List<Character> characters )
 	{
 		_parent = parent;
 		_characters = characters;
@@ -51,18 +68,20 @@ public class UnitContainer
 		_enemies = enemiesData;
 	}
 
-	protected Transform[] _localTargets;
-	protected NavMeshAgent[] _agents;
+	protected List<Transform>_localTargets;
+	protected List<NavMeshAgent>_agents;
 
-	public NavMeshAgent[] GetAgents()
+	public List<NavMeshAgent> GetAgents()
 	{
 		return _agents;
 	}
 
-	public void AddAgents(NavMeshAgent[] agents)
+	public void AddAgents(List<NavMeshAgent> agents)
 	{
 		_agents = agents;
 	}
+
+	
 
 	public virtual void Move(Vector3 forward)
 	{
@@ -82,7 +101,8 @@ public class UnitContainer
 			return;
 		}
 
-		for (var i = 0; i < _agents.Length; i++)
+		//Local targets
+		for (var i = 0; i < _agents.Count; i++)
         {
             _agents[i].updateRotation = false;
             _agents[i].transform.forward = forward;
