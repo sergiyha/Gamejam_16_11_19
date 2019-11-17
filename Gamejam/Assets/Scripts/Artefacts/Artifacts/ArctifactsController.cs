@@ -10,7 +10,7 @@ public class ArctifactsController : MonoBehaviour
     public List<float> currentCooldowns;
     
     public float atackspeedMultipl =1f;//==1f if normal
-    public bool UseAllowed;
+    //public bool UseAllowed;
     
     private Character character;
 
@@ -38,10 +38,25 @@ public class ArctifactsController : MonoBehaviour
     {
         //allArtifactsTarg[index].Clear();
         allArtifactsTarg[index] = new List<Character>();
-        foreach (var characters in Character.Characters)
+        if (artifact.TargetType == TargetType.ally)
         {
-            if(characters.Key != character.CharacterType)
-                allArtifactsTarg[index].AddRange(characters.Value);
+            foreach (var characters in Character.Characters)
+            {
+                if (characters.Key == character.CharacterType)
+                    allArtifactsTarg[index].AddRange(characters.Value);
+            }
+        }
+        if (artifact.TargetType == TargetType.enemy)
+        {
+            foreach (var characters in Character.Characters)
+            {
+                if (characters.Key != character.CharacterType)
+                    allArtifactsTarg[index].AddRange(characters.Value);
+            }
+        }
+        if (artifact.TargetType == TargetType.itself)
+        {
+            allArtifactsTarg[index].Add(character);
         }
 
         for (int i = 0; i < allArtifactsTarg[index].Count; i++)
