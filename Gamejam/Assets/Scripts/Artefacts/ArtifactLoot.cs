@@ -20,6 +20,7 @@ public class ArtifactLoot : MonoBehaviour
     {
         var koef = 0f;
         var originalInt = spotlight[0].intensity;
+        Debug.Log("D");
         while (koef<pickupTime*0.7f)
         {
             foreach (var light in spotlight)

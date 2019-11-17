@@ -131,6 +131,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 818635846, guid: 62698a1140f8af747bf02a277a269b49, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 1.38
       objectReference: {fileID: 0}
