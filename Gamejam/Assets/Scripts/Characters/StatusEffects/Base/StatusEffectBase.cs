@@ -28,6 +28,7 @@ public abstract class StatusEffectBase
 
     public void Tick()
     {
+        
         if (currentTickLeft > 0f)
         {
             currentTickLeft -= Time.deltaTime;

@@ -100,7 +100,9 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="AI" t="Include">
+            <e p="AimController.cs" t="Include" />
             <e p="BotBrain.cs" t="Include" />
+            <e p="PlayerAimModule.cs" t="Include" />
             <e p="PlayerBrain.cs" t="Include" />
           </e>
           <e p="Animation" t="Include">
@@ -159,9 +161,15 @@
             <e p="Inventory.cs" t="Include" />
             <e p="SquadInventory.cs" t="Include" />
           </e>
+          <e p="Mathf" t="Include">
+            <e p="MathParabola.cs" t="Include" />
+            <e p="ParabolaConstrain.cs" t="Include" />
+            <e p="ParabolaController.cs" t="Include" />
+          </e>
           <e p="Player" t="Include">
             <e p="PlayerController.cs" t="Include" />
-            <e p="UnitMOvableContainer.cs" t="Include" />
+            <e p="RangedUnitContainer.cs" t="Include" />
+            <e p="UnitContainer.cs" t="Include" />
           </e>
           <e p="SoundManager" t="Include">
             <e p="ObjectPool" t="Include">
