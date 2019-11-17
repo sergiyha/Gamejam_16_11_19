@@ -4,7 +4,7 @@ using Characters.StatusEffects;
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace Assets.Scripts.Characters.StatusEffects.Base.Editor
 {
 
     [CustomPropertyDrawer(typeof(EffectImplementationAttribute), true)]
