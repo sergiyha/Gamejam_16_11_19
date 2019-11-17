@@ -84,7 +84,7 @@ public class ArctifactsController : MonoBehaviour
                 
                     currentCooldowns[i] -= Time.deltaTime;
                     //Debug.Log("Cd");
-                    yield return new WaitForEndOfFrame();
+                    
                 }
                 else
                 {
@@ -98,13 +98,14 @@ public class ArctifactsController : MonoBehaviour
                         SoundManager.Instance.PlaySFX(SoundManagerDatabase.GetRandomClip(Artifacts[i].ActionSound), transform.position,2f);
                         currentCooldowns[i] = Artifacts[i].Cooldown/atackspeedMultipl;
                         Artifacts[i].ready = false;
-                        yield return new WaitForEndOfFrame();
+                        //yield return new WaitForEndOfFrame();
                     }
                     else
                     {
-                        yield return new WaitForEndOfFrame();
+                        //yield return new WaitForEndOfFrame();
                     }
                 }
+                //yield return new WaitForEndOfFrame();
             }
             yield return new WaitForEndOfFrame();
         
