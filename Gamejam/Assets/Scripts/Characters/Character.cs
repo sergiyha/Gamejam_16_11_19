@@ -22,7 +22,6 @@ public class Character : MonoBehaviour
 	public StatusEffectsController StatusEffectsController;
 	public UiController UiController;
 	public ArctifactsController ArctifactsController;
-	public AudioSource AudioSource;
 
 	public enum CharType
 	{
@@ -45,7 +44,6 @@ public class Character : MonoBehaviour
 
 		Characters[CharacterType].Add(this);
 		StatusEffectsController = GetComponent<StatusEffectsController>();
-		AudioSource = GetComponent<AudioSource>();
 		WeaponController = GetComponent<WeaponController>();
 		HealthController = GetComponent<HealthController>();
 		ArctifactsController = GetComponent<ArctifactsController>();

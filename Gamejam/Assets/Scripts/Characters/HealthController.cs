@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FPSTestProject.Helpers.Runtime.SoundManager;
 using LifelongAdventure.Creatures.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -24,6 +25,7 @@ public class HealthController : MonoBehaviour
     {
         character.Stats[Stat.Health] -= value;
         UpdateHealth();
+        SoundManager.Instance.PlaySFX(SoundManagerDatabase.GetRandomClip(SoundType.TakeDamage), transform.position, 1, transform);
     }
 
     public void DoHeal(int value)

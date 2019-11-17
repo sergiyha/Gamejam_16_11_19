@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FPSTestProject.Helpers.Runtime.SoundManager;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
@@ -82,9 +83,10 @@ public class WeaponController : MonoBehaviour
                         Debug.Log("Use");
 
                         Weapon.SetTargets(targets);
+
+                        SoundManager.Instance.PlaySFX(SoundManagerDatabase.GetRandomClip(Weapon.ActionSound), transform.position);
                         Weapon.Action();
-                        if (Weapon.ActionSound != null)
-                            character.AudioSource.PlayOneShot(Weapon.ActionSound);
+
                         Weapon.currentCooldown = Weapon.Cooldown / atackspeedMultipl;
                         Weapon.ready = false;
                         yield return new WaitForEndOfFrame();
