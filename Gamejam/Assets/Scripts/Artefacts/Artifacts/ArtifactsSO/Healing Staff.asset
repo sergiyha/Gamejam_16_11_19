@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f8e614abef4a54c9d5d098d4e59c81, type: 3}
+  m_Name: Healing Staff
+  m_EditorClassIdentifier: 
+  SlotIcon: {fileID: 0}
+  Name: Healing staff
+  Description: Heal Nearby enemys
+  StatusEffectIcon: {fileID: 21300000, guid: b64f6c74fcaa72c4c88c4382ae8670da, type: 3}
+  InventoryIcon: {fileID: 21300000, guid: 8af9db0d7dda35d458cb3aca6b02cb97, type: 3}
+  ArtefactType: 1
+  Range: 20
+  Angle: 180
+  Cooldown: 8
+  animationTime: 1
+  ActionSound: 1100
+  useAllowed: 1
+  ready: 1
+  currentCooldown: 0
+  data: {fileID: 11400000, guid: 5d2c99729e64c7242adb037692028e0b, type: 2}
+  point: {x: 0, y: 0, z: 0}
+  effectRadius: 0
+  TargetType: 1

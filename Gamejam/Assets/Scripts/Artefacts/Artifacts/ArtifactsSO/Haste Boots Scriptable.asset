@@ -20,7 +20,7 @@ MonoBehaviour:
   ArtefactType: 1
   Range: 20
   Angle: 180
-  Cooldown: 10
+  Cooldown: 8
   animationTime: 1
   ActionSound: 1400
   useAllowed: 1

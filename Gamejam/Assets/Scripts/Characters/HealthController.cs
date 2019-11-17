@@ -47,7 +47,7 @@ public class HealthController : MonoBehaviour
             StartCoroutine(ApplyDamage(value, delay));
     }
 
-    public void DoHeal(int value)
+    public void DoHeal(int value, float delay)
     {
         character.Stats[Stat.Health] += value;
         UpdateHealth();

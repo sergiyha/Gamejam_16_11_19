@@ -107,6 +107,7 @@
           </e>
           <e p="Animation" t="Include">
             <e p="CharacterAnimationController.cs" t="Include" />
+            <e p="SetWeightWhenAttack.cs" t="Include" />
           </e>
           <e p="Artefacts" t="Include">
             <e p="ArtifactBase.cs" t="Include" />
@@ -115,6 +116,9 @@
               <e p="ArctifactsController.cs" t="Include" />
               <e p="HasteBoots" t="Include">
                 <e p="HasteBootsScriptable.cs" t="Include" />
+              </e>
+              <e p="Healling staff" t="Include">
+                <e p="HealingStaff.cs" t="Include" />
               </e>
               <e p="RageStandart" t="Include">
                 <e p="RageStandartScriptable.cs" t="Include" />
@@ -151,6 +155,8 @@
               <e p="BleedEffectData.cs" t="Include" />
               <e p="Haste.cs" t="Include" />
               <e p="HasteEffectData.cs" t="Include" />
+              <e p="HealingData.cs" t="Include" />
+              <e p="HealOverTime.cs" t="Include" />
               <e p="Rage.cs" t="Include" />
               <e p="RageEffectData.cs" t="Include" />
               <e p="Slow.cs" t="Include" />
