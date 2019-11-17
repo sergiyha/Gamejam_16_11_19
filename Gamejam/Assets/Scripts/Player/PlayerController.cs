@@ -137,8 +137,8 @@ public class PlayerController : MonoBehaviour
 	private void MoveAgents()
 	{
 		//MoveMelee();
-		_meleeContainer.Move();
-		_rangeContainer.Move();
+		_meleeContainer.Move(_directionObject.forward);
+		_rangeContainer.Move(_directionObject.forward);
 	}
 
 	private void MoveUnits()

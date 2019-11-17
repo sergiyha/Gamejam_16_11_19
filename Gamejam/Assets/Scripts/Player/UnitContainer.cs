@@ -45,7 +45,7 @@ public class UnitContainer
 		_agents = agents;
 	}
 
-	public virtual void Move()
+	public virtual void Move(Vector3 forward)
 	{
 		if (_enemies != null && _enemies.Any())
 		{
@@ -54,15 +54,20 @@ public class UnitContainer
 
 			foreach (var navMeshAgent in _agents)
 			{
-				if (minDistCharacter.Character)
-					navMeshAgent.destination = minDistCharacter.Character.transform.position;
-			}
+                if (minDistCharacter.Character)
+                {
+                    navMeshAgent.updateRotation = true;
+                    navMeshAgent.destination = minDistCharacter.Character.transform.position;
+                }
+            }
 			return;
 		}
 
 		for (var i = 0; i < _agents.Length; i++)
-		{
-			_agents[i].destination = _localTargets[i].position;
+        {
+            _agents[i].updateRotation = false;
+            _agents[i].transform.forward = forward;
+            _agents[i].destination = _localTargets[i].position;
 		}
 	}
 

@@ -30,7 +30,6 @@ public class StatusEffectsController : MonoBehaviour
                     var effect = StatusEffects[index];
                     if (!effect.active)
                     {
-                        Debug.Log(effect.InstanceId + " - " + effect.currentTotalTime + " - " + effect.TotalTime);
                         if (effect.currentTotalTime < effect.TotalTime)
                         {
                             effect.Tick();
