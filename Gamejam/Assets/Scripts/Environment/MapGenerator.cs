@@ -15,6 +15,7 @@ namespace Assets.Scripts.Environment
 		[SerializeField] private int _height;
 		[SerializeField] private RoomCreator _roomCreator;
         [SerializeField] private Transform _players;
+        [SerializeField] private GameObject _endGame;
 
         private int _minRoomSize = 1;
 		private int _maxRoomSizeExclude = 4;
@@ -111,6 +112,7 @@ namespace Assets.Scripts.Environment
             Debug.LogError(EndRoomCenter);
 
             _players.transform.position = StartRoomCenter;
+            Instantiate(_endGame, EndRoomCenter, Quaternion.identity);
         }
 
 		private List<int> GetLongestPath(List<Room> rooms, int startRoom, int endRoom)
