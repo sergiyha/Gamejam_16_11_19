@@ -153,6 +153,8 @@
               <e p="HasteEffectData.cs" t="Include" />
               <e p="Rage.cs" t="Include" />
               <e p="RageEffectData.cs" t="Include" />
+              <e p="Slow.cs" t="Include" />
+              <e p="SlowEffectData.cs" t="Include" />
             </e>
             <e p="WeaponController.cs" t="Include" />
           </e>

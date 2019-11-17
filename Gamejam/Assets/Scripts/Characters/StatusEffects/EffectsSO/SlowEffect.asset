@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8694ab4ca00a694c991f5dc0bfcb080, type: 3}
-  m_Name: HasteEffect
+  m_Script: {fileID: 11500000, guid: 9339e62a00ed65a4b86f8925adcef9a5, type: 3}
+  m_Name: SlowEffect
   m_EditorClassIdentifier: 
-  imp: Haste
-  statusEffectIcon: {fileID: 21300000, guid: d248fde349247bc42a60751462cea20d, type: 3}
-  tickTime: 5
-  totalTime: 5
-  speedMultiplier: 1.3
+  imp: Slow
+  statusEffectIcon: {fileID: 0}
+  tickTime: 3
+  totalTime: 3
+  speedMultiplier: 0.7
