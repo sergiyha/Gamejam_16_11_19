@@ -17,15 +17,8 @@ public class WeaponScriptableObject : ArtifactBase
     
     public AnimatorOverrideController aoc;
     
-    public bool useAllowed;
-    
-    
-    public bool ready = false;
-    public float currentCooldown = 0f;
     public BaseEffectData data;
     
-    
-
     public override void Action()
     {
        

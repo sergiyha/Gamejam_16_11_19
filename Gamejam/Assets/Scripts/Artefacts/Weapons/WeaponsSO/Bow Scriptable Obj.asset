@@ -24,10 +24,6 @@ MonoBehaviour:
   Cooldown: 3
   AnimationTime: 1.5
   Angle: 45
-  ActionSound: {fileID: 0}
-  ImpactSound: {fileID: 0}
+  ActionSound: 1500
   aoc: {fileID: 0}
-  useAllowed: 0
-  ready: 0
-  currentCooldown: 0
   data: {fileID: 0}

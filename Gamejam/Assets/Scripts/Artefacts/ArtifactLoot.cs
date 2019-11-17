@@ -20,7 +20,7 @@ public class ArtifactLoot : MonoBehaviour
     {
         var koef = 0f;
         var originalInt = spotlight[0].intensity;
-        Debug.Log("D");
+
         while (koef<pickupTime*0.7f)
         {
             foreach (var light in spotlight)
@@ -29,7 +29,6 @@ public class ArtifactLoot : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
             koef += Time.deltaTime;
-            Debug.Log(koef);
         }
         Destroy(gameObject,pickupTime/7);
         

@@ -38,6 +38,7 @@ namespace UI
         public (Slider, Transform, Transform) GetCharacterPanel(Sprite icon)
         {
             var portrait = Instantiate(playerPortraitPrefab, portraitsHolder).GetComponent<PlayerPortrait>();
+            portrait.gameObject.SetActive(true);
             portrait.icon.sprite = icon;
 
             return (portrait.helthBar, portrait.helthGrid, portrait.effectsGrid);

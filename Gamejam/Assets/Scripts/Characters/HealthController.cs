@@ -23,18 +23,25 @@ public class HealthController : MonoBehaviour
 
 	private void CheckDead()
 	{
-		if(character.Stats[Stat.Health]<=0)Destroy(this.gameObject);
+		if(character.Stats[Stat.Health]<=0)
+            Destroy(this.gameObject);
 	}
 
 
-	public void DoDamage(int value)
+    public void DoDamage(int value, float delay)
     {
-        character.Stats[Stat.Health] -= value;
-        UpdateHealth();
-        SoundManager.Instance.PlaySFX(SoundManagerDatabase.GetRandomClip(SoundType.TakeDamage), transform.position, 1, transform);
-	    CheckDead();
-
-
+        if (delay <= 0)
+        {
+            if (character.Stats[Stat.Health] > 0)
+            {
+                character.Stats[Stat.Health] -= value;
+                UpdateHealth();
+                SoundManager.Instance.PlaySFX(SoundManagerDatabase.GetRandomClip(SoundType.TakeDamage), transform.position, 1, transform);
+                CheckDead();
+            }
+        }
+        else
+            StartCoroutine(ApplyDamage(value, delay));
     }
 
     public void DoHeal(int value)
@@ -47,4 +54,18 @@ public class HealthController : MonoBehaviour
     {
         character.UiController.UpdateHealth(character.Stats[Stat.Health], character.InitialStats[Stat.Health]);
     }
+
+    private IEnumerator ApplyDamage(int value, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (character.Stats[Stat.Health] > 0)
+        {
+            character.Stats[Stat.Health] -= value;
+            UpdateHealth();
+            SoundManager.Instance.PlaySFX(SoundManagerDatabase.GetRandomClip(SoundType.TakeDamage), transform.position, 1, transform);
+            CheckDead();
+        }
+    }
+
 }

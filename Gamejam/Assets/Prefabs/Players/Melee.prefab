@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Weapon: {fileID: 0}
   atackspeedMultipl: 1
-  UseAllowed: 0
+  UseAllowed: 1
 --- !u!114 &2786624502531317454
 MonoBehaviour:
   m_ObjectHideFlags: 0

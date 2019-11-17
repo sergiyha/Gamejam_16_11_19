@@ -1698,17 +1698,12 @@ MonoBehaviour:
     allStats:
       m_keys: 0100000000000000020000000300000004000000
       m_values: 1900000000000000000000000000000000000000
-  InitialStats:
-    allStats:
-      m_keys: 
-      m_values: 
   HealthController: {fileID: 5669609890758226205}
   AnimationController: {fileID: 5669609891655062456}
   WeaponController: {fileID: 5669609890758226401}
   StatusEffectsController: {fileID: 5669609890758226207}
   UiController: {fileID: 4581225370889239201}
   ArctifactsController: {fileID: 0}
-  AudioSource: {fileID: 0}
 --- !u!95 &5669609890750792234
 Animator:
   serializedVersion: 3
@@ -1807,8 +1802,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weapon: {fileID: 0}
-  atackspeedMultipl: 0
-  UseAllowed: 0
+  atackspeedMultipl: 1
+  UseAllowed: 1
 --- !u!114 &5669609890758226205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2566,6 +2561,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5669609890757799362}
     m_Modifications:
+    - target: {fileID: 3429938844037793603, guid: ad9e04114a0bb2f4987c589265c3f564,
+        type: 3}
+      propertyPath: m_Name
+      value: Indicators
+      objectReference: {fileID: 0}
     - target: {fileID: 3637316178984367644, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2621,30 +2621,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3429938844037793603, guid: ad9e04114a0bb2f4987c589265c3f564,
-        type: 3}
-      propertyPath: m_Name
-      value: Indicators
-      objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13514847
+      value: -0.16384296
       objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8508189
+      value: -0.7935467
       objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.26574993
+      value: -0.24401802
       objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.43268824
+      value: 0.53281736
       objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
