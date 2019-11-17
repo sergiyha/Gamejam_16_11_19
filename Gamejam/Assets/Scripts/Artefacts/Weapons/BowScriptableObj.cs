@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class BowScriptableObj : WeaponScriptableObject
 {
+    public ParticleSystem ps;
     public override void Action()
     {
         foreach (var target in targets)

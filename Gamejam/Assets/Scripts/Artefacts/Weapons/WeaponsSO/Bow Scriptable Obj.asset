@@ -27,3 +27,4 @@ MonoBehaviour:
   ActionSound: 1500
   aoc: {fileID: 0}
   data: {fileID: 0}
+  ps: {fileID: 4299976643880601991, guid: 37d1878e5a03c7e45b2123902e344102, type: 3}
