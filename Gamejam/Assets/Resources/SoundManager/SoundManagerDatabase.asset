@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SoundManagerDatabase
   m_EditorClassIdentifier: 
   database:
-    m_keys: 64000000c80000002c01000090010000f401000058020000bc0200002003000084030000e80300004c040000b00400001405000078050000dc05000040060000
+    m_keys: 64000000c80000002c01000090010000f401000058020000bc0200002003000084030000e80300004c040000b00400001405000078050000dc05000040060000a4060000
     m_values:
     - clips:
       - {fileID: 8300000, guid: aa25eb52d84615d419f65809ebbf7e12, type: 3}
@@ -24,7 +24,6 @@ MonoBehaviour:
     - clips:
       - {fileID: 8300000, guid: 425c9166f19e56649a265fa9d5081df4, type: 3}
     - clips:
-      - {fileID: 8300000, guid: 8eb5c60cccb7118419ba11cb1ca0d912, type: 3}
       - {fileID: 8300000, guid: 28a65a0d1cf2b114da37dfe08477ecd0, type: 3}
     - clips:
       - {fileID: 8300000, guid: fb7fa0e6cfced244eb438fa1220a4468, type: 3}
@@ -60,3 +59,5 @@ MonoBehaviour:
       - {fileID: 8300000, guid: af164773468fd4b41bb058f915b29679, type: 3}
     - clips:
       - {fileID: 8300000, guid: 9918dda73aedb3c47925c0f894951e1c, type: 3}
+    - clips:
+      - {fileID: 8300000, guid: 8eb5c60cccb7118419ba11cb1ca0d912, type: 3}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FPSTestProject.Helpers.Runtime.SoundManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -45,6 +46,7 @@ namespace UI.Inventory
             if(IsLocked)
                 return;
 
+            SoundManager.Instance.PlayUI(SoundManagerDatabase.GetRandomClip(SoundType.UIMove));
             DraggedInstance = gameObject;
             _initialParent = transform.parent;
             _startPosition = transform.position;
@@ -87,6 +89,7 @@ namespace UI.Inventory
                     {
                         initialHolder.RemoveItem(this);
                         initialHolder = slot;
+                        SoundManager.Instance.PlayUI(SoundManagerDatabase.GetRandomClip(SoundType.UIWear));
                         return;
                     }
                 }
@@ -94,6 +97,7 @@ namespace UI.Inventory
 
             transform.SetParent(_initialParent);
             DraggedInstance = null;
+            SoundManager.Instance.PlayUI(SoundManagerDatabase.GetRandomClip(SoundType.UIMove));
             _offsetToMouse = Vector3.zero;
             transform.position = _startPosition;
             transform.SetSiblingIndex(_initialSubIndex);

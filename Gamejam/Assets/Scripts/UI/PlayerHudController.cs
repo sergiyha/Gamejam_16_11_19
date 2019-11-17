@@ -1,4 +1,5 @@
 ﻿using System;
+using FPSTestProject.Helpers.Runtime.SoundManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,11 +53,13 @@ namespace UI
                 {
                     Time.timeScale = 0;
                     pauseContainer.SetActive(true);
+                    SoundManager.Instance.PlayUI(SoundManagerDatabase.GetRandomClip(SoundType.UIOpen));
                 }
                 else
                 {
                     Time.timeScale = 1;
                     pauseContainer.SetActive(false);
+                    SoundManager.Instance.PlayUI(SoundManagerDatabase.GetRandomClip(SoundType.UIClose));
                 }
             }
         }
