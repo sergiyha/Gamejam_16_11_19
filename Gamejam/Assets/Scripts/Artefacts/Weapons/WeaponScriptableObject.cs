@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using FPSTestProject.Helpers.Runtime.SoundManager;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 [CreateAssetMenu(menuName = "Weapon")]
 public class WeaponScriptableObject : ArtifactBase
