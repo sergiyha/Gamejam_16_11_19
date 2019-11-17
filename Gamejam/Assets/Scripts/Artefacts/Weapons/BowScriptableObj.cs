@@ -7,17 +7,13 @@ public class BowScriptableObj : WeaponScriptableObject
 {
     public override void Action()
     {
-        foreach (var target in targets)
+        int dmg = Random.Range(MinDamage, MaxDamage);
+        Debug.Log($"Hit {targets[0].name} for {dmg} dmg.");
+        targets[0].HealthController.DoDamage(dmg, AnimationTime);
+        if (data != null)
         {
-            int dmg =Random.Range(MinDamage,MaxDamage);
-            Debug.Log($"Hit {target.name} for {dmg} dmg.");
-            target.HealthController.DoDamage(dmg, AnimationTime);
-            if (data != null)
-            {
-                
-                Debug.Log($"Add status effect to {target.name}");
-                target.StatusEffectsController.AddStatusEffect(BaseEffectData.Create(data, target));///Если хотим стерлы с модифаером, заполняем.
-            }
+            Debug.Log($"Add status effect to {targets[0].name}");
+            targets[0].StatusEffectsController.AddStatusEffect(BaseEffectData.Create(data, targets[0])); ///Если хотим стерлы с модифаером, заполняем.
         }
     }
 }

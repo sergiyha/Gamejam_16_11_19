@@ -25,5 +25,5 @@ MonoBehaviour:
   AnimationTime: 1.5
   Angle: 45
   ActionSound: 1500
-  aoc: {fileID: 0}
+  aoc: {fileID: 22100000, guid: 08146e36e25d2a94e8d6a34f4e15d629, type: 2}
   data: {fileID: 0}

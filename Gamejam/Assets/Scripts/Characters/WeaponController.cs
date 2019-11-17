@@ -36,6 +36,8 @@ public class WeaponController : MonoBehaviour
         {
             Weapon = weapon;
             currentCooldown = Weapon.Cooldown/atackspeedMultipl;
+            character.AnimationController.SetController(Weapon.aoc);
+            StopAllCoroutines();
             StartCoroutine(Use());
         }
     }
@@ -53,7 +55,7 @@ public class WeaponController : MonoBehaviour
         for (int i = 0; i < targets.Count; i++)
         {
             if (Vector3.Distance(targets[i].transform.position, transform.position) > Weapon.Range
-                || Vector3.Angle(transform.forward, (targets[i].transform.position - transform.position).normalized) <= Weapon.Angle)
+                || Vector3.Angle(transform.forward, (targets[i].transform.position - transform.position).normalized) > Weapon.Angle)
             {
                 targets.RemoveAt(i);
                 i--;
@@ -86,6 +88,7 @@ public class WeaponController : MonoBehaviour
 
                         SoundManager.Instance.PlaySFX(SoundManagerDatabase.GetRandomClip(Weapon.ActionSound), transform.position);
                         Weapon.Action();
+                        character.AnimationController.DoAttack();
 
                         currentCooldown = Weapon.Cooldown / atackspeedMultipl;
 
