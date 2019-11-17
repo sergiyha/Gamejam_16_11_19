@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HealingEffect
   m_EditorClassIdentifier: 
   imp: HealingData
-  statusEffectIcon: {fileID: 0}
+  statusEffectIcon: {fileID: 21300000, guid: 44228a433f0adea4ca9c7412f04471f0, type: 3}
   tickTime: 1
   totalTime: 5
-  healPerTick: 2
+  healPerTick: 1

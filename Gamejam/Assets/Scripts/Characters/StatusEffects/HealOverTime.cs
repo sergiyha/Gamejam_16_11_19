@@ -17,5 +17,9 @@ public class HealOverTime : StatusEffectBase
     public override void ApplyEffect()
     {
         character.HealthController.DoHeal(Data.healPerTick, -1);
+        character.StatusEffectsController.healingFX.SetActive(true);
+    }public override void Remove()
+    {
+        character.StatusEffectsController.healingFX.SetActive(false);
     }
 }

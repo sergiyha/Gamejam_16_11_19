@@ -8,6 +8,7 @@ public class StatusEffectsController : MonoBehaviour
 {
     public GameObject hasteFX;
     public GameObject rageFx;
+    public GameObject healingFX;
     [SerializeField]
     private List<StatusEffectBase> StatusEffects = new List<StatusEffectBase>();
 
