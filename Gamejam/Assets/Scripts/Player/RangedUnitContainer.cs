@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ public class RangedUnitContainer : UnitContainer
 	{
 		if (_enemies == null || !_enemies.Any())
 		{
+			if (_characters == null || !_characters.Any()) return;
+
 			for (int i = 0; i < _characters.Count; i++)
 			{
 				_characters[i].AimingModule.Disable();
@@ -28,15 +31,24 @@ public class RangedUnitContainer : UnitContainer
 		}
 
 		var enemy = _enemies.First();
-		
+
+		if (_characters == null || !_characters.Any()) return;
 
 		for (int i = 0; i < _characters.Count; i++)
 		{
-			_characters[i].AimingModule.Aim(enemy.Character.transform);
+			var bow = _characters[i].WeaponController.Weapon as BowScriptableObj;
+		   _characters[i].AimingModule.Aim(enemy.Character.transform, bow, _characters[i]);
 		}
 	}
 
+	
+	private bool IsFired; 
+	
 
+	private void Fire(int ind)
+	{
+
+	}
 
 
 
