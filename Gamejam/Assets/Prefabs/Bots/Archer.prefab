@@ -1654,7 +1654,7 @@ GameObject:
   - component: {fileID: 4581225370889239201}
   - component: {fileID: 1201358262}
   m_Layer: 0
-  m_Name: Nolan
+  m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1705,6 +1705,8 @@ MonoBehaviour:
   StatusEffectsController: {fileID: 5669609890758226207}
   UiController: {fileID: 4581225370889239201}
   ArctifactsController: {fileID: 0}
+  AudioSource: {fileID: 0}
+  AimingModule: {fileID: 0}
 --- !u!95 &5669609890750792234
 Animator:
   serializedVersion: 3
@@ -1805,6 +1807,7 @@ MonoBehaviour:
   Weapon: {fileID: 0}
   atackspeedMultipl: 1
   UseAllowed: 1
+  character: {fileID: 5669609890758226206}
 --- !u!114 &5669609890758226205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2688,22 +2691,22 @@ PrefabInstance:
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.12170795
+      value: -0.13908182
       objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8571155
+      value: -0.7864745
       objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.23645939
+      value: -0.19177336
       objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.44116572
+      value: 0.57038325
       objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}

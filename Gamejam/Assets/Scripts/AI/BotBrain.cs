@@ -88,8 +88,8 @@ namespace AI
                         foreach (var target in targets)
                         {
                             var dist = Vector3.Distance(target.transform.position, transform.position);
-                            if (dist < minDist && Vector3.Angle(transform.forward, (target.transform.position - transform.position).normalized) <=
-                                viewAngle)
+                            if (dist < minDist/* && Vector3.Angle(transform.forward, (target.transform.position - transform.position).normalized) <=
+                                viewAngle*/)
                             {
                                 minDist = dist;
                                 currTarget = target;

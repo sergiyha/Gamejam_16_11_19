@@ -29,7 +29,6 @@ public class CharacterAnimationController : MonoBehaviour
 
     public void DoAttack()
     {
-        Debug.Log("Attack");
         animator.SetTrigger(Attack);
     }
 

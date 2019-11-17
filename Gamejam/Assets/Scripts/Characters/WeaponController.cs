@@ -11,6 +11,7 @@ public class WeaponController : MonoBehaviour
     public float atackspeedMultipl =1f;//==1f if normal
     public bool UseAllowed;
     
+    [SerializeField]
     private Character character;
 
     private List<Character> targets = new List<Character>();
@@ -23,23 +24,20 @@ public class WeaponController : MonoBehaviour
        //AddWeapon(Weapon);
     }
 
-    
+
     public void AddWeapon(WeaponScriptableObject weapon)
     {
         if (Weapon != null)
         {
             Weapon.DisableArtifact();
-            Weapon = weapon;
-            currentCooldown = Weapon.Cooldown/atackspeedMultipl;
         }
-        else
-        {
-            Weapon = weapon;
-            currentCooldown = Weapon.Cooldown/atackspeedMultipl;
-            character.AnimationController.SetController(Weapon.aoc);
-            StopAllCoroutines();
-            StartCoroutine(Use());
-        }
+
+        Weapon = weapon;
+        currentCooldown = Weapon.Cooldown / atackspeedMultipl;
+        character.AnimationController.SetController(Weapon.aoc);
+
+        StopAllCoroutines();
+        StartCoroutine(Use());
     }
 
     public List<Character> LookForTargets()
@@ -55,7 +53,7 @@ public class WeaponController : MonoBehaviour
         for (int i = 0; i < targets.Count; i++)
         {
             if (Vector3.Distance(targets[i].transform.position, transform.position) > Weapon.Range
-                || Vector3.Angle(transform.forward, (targets[i].transform.position - transform.position).normalized) > Weapon.Angle)
+             /*   || Vector3.Angle(transform.forward, (targets[i].transform.position - transform.position).normalized) > Weapon.Angle*/)
             {
                 targets.RemoveAt(i);
                 i--;
