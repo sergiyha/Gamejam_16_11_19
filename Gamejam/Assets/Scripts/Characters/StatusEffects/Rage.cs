@@ -10,6 +10,7 @@
         public override void Remove()
         {
             character.WeaponController.atackspeedMultipl  -= Data.additionaAS;
+            character.StatusEffectsController.rageFx.SetActive(false);
         }
 
         public Rage(BaseEffectData data, Character character) : base(data, character)
@@ -23,6 +24,7 @@
         public override void ApplyEffect()
         {
             character.WeaponController.atackspeedMultipl  += Data.additionaAS;
+            character.StatusEffectsController.rageFx.SetActive(true);
         }
     }
 }
