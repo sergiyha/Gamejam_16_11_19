@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class RangedUnitContainer : UnitContainer
 {
@@ -9,9 +10,9 @@ public class RangedUnitContainer : UnitContainer
 	{
 	}
 
-	public override void Move()
+	public override void Move(Vector3 forward)
 	{
-		for (var i = 0; i < _agents.Length; i++)
+		for (var i = 0; i < _agents.Count; i++)
 		{
 			_agents[i].destination = _localTargets[i].position;
 		}
@@ -42,7 +43,6 @@ public class RangedUnitContainer : UnitContainer
 	}
 
 	
-	private bool IsFired; 
 	
 
 	private void Fire(int ind)
@@ -51,5 +51,5 @@ public class RangedUnitContainer : UnitContainer
 	}
 
 
-
+	
 }

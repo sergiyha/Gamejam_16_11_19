@@ -25,16 +25,16 @@ public class PlayerController : MonoBehaviour
 
 
 	[SerializeField]
-	private NavMeshAgent[] _rangeAgents;
+	private List<NavMeshAgent> _rangeAgents;
 
 	[SerializeField]
-	private NavMeshAgent[] _meleAgents;
+	private List<NavMeshAgent> _meleAgents;
 
 	[SerializeField]
-	private Transform[] _meleAgentsPositions;
+	private List<Transform> _meleAgentsPositions;
 
 	[SerializeField]
-	private Transform[] _rangedAgentsPositions;
+	private List<Transform> _rangedAgentsPositions;
 
 	[SerializeField] private float _speed;
 
@@ -52,7 +52,11 @@ public class PlayerController : MonoBehaviour
 
 	private void Start()
 	{
+
+		
 		var units = Character.Characters[Character.CharType.Player];
+
+		units.ForEach(a=>a.WeaponController.OnWeaponChange += ChangeUnitStage);
 		var ranged = units.Where(u => u.IsRanged()).ToList();
 		var melee = units.Where(u => !u.IsRanged()).ToList();
 		_meleeContainer = new UnitContainer(this.transform, melee);
@@ -62,7 +66,7 @@ public class PlayerController : MonoBehaviour
 		_meleeContainer.AddTargets(_meleAgentsPositions);
 
 		_rangeContainer.AddAgents(_rangeAgents);
-        _rangeContainer.AddTargets(_rangedAgentsPositions);
+		_rangeContainer.AddTargets(_rangedAgentsPositions);
 	}
 
 	// Start is called before the first frame update
@@ -74,18 +78,47 @@ public class PlayerController : MonoBehaviour
 
 	}
 
-	public void AddNewUnit()
-	{
 
-	}
-
-	public void RemoveUnit()
-	{
-	}
 
 	public Vector3 GetDirection()
 	{
 		return _aimingDirection;
+	}
+
+	public void ChangeUnitStage(Character character)
+	{
+		if (character.IsRanged())
+		{
+			NavMeshAgent charNavMesh = character.GetComponent<NavMeshAgent>();
+			if (_rangeContainer.Contains(charNavMesh, character))
+			{
+				Debug.LogError("is already in");
+				return;
+			}
+			else
+			{
+				if (_meleAgents.Contains(charNavMesh))
+					_meleAgents.Remove(charNavMesh);
+
+				_meleeContainer.RemoveCharacterAndAgent(charNavMesh, character);
+				_rangeContainer.AddAgentAndCharacter(charNavMesh, character);
+			}
+		}
+		else
+		{
+			NavMeshAgent charNavMesh = character.GetComponent<NavMeshAgent>();
+			if (_meleeContainer.Contains(charNavMesh, character))
+			{
+				Debug.LogError("is already in");
+				return;
+			}
+			else
+			{
+
+				_rangeContainer.RemoveCharacterAndAgent(charNavMesh, character);
+				_meleeContainer.AddAgentAndCharacter(charNavMesh, character);
+			}
+		}
 	}
 
 	private Vector3 _aimingDirection;

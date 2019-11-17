@@ -54,7 +54,7 @@ public class PlayerBrain : MonoBehaviour
 						Distance = dist
 					});
 				}
-				else if (dist <= rangeDistance)
+				 if (dist <= rangeDistance)
 				{
 					CharRangedDist = CharRangedDist ?? new List<CharacterAndDistance>();
 					CharRangedDist.Add(new CharacterAndDistance()
