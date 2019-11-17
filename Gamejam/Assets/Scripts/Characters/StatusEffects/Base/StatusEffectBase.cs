@@ -28,7 +28,6 @@ public abstract class StatusEffectBase
 
     public void Tick()
     {
-        
         if (currentTickLeft > 0f)
         {
             currentTickLeft -= Time.deltaTime;
@@ -38,11 +37,10 @@ public abstract class StatusEffectBase
         {
             ApplyEffect();
             currentTickLeft = tickTime;
-            currentTotalTime += tickTime;
             //yield return new WaitForEndOfFrame();
         }
 
-        
+        currentTotalTime += Time.deltaTime;
     }
 
     public virtual void ApplyEffect()

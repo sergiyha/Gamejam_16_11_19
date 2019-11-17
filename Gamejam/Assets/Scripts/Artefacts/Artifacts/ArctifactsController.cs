@@ -62,7 +62,7 @@ public class ArctifactsController : MonoBehaviour
         for (int i = 0; i < allArtifactsTarg[index].Count; i++)
         {
             if (Vector3.Distance(allArtifactsTarg[index][i].transform.position, transform.position) > artifact.Range
-                || Vector3.Angle(transform.forward, (allArtifactsTarg[index][i].transform.position - transform.position).normalized) <= artifact.Angle)
+                /*|| Vector3.Angle(transform.forward, (allArtifactsTarg[index][i].transform.position - transform.position).normalized) <= artifact.Angle*/)
             {
                 allArtifactsTarg[index].RemoveAt(i);
                 i--;
