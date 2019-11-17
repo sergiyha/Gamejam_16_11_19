@@ -165,8 +165,8 @@ MonoBehaviour:
   Speed: 1
   ParabolaConstrain: {fileID: 7535390327476042141}
   ParabolaRoot: {fileID: 7535390327476042138}
-  Autostart: 0
-  Animation: 0
+  Autostart: 1
+  Animation: 1
 --- !u!114 &7535390327476042141
 MonoBehaviour:
   m_ObjectHideFlags: 0
