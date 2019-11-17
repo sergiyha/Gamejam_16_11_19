@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterType: 0
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 9190c2df3b425c14fbddb98fc177e5a9, type: 3}
   Stats:
     allStats:
       m_keys: 0000000001000000020000000300000004000000
@@ -113,7 +113,6 @@ MonoBehaviour:
   StatusEffectsController: {fileID: 7063867098197776983}
   UiController: {fileID: 7063867098197776977}
   ArctifactsController: {fileID: 7063867098197776982}
-  AudioSource: {fileID: 0}
 --- !u!136 &7063867098197776984
 CapsuleCollider:
   m_ObjectHideFlags: 0

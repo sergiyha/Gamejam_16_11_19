@@ -10,6 +10,7 @@ namespace UI.Inventory
     {
         public static GameObject DraggedInstance;
         public static EventSystem CurrentSystem;
+        public static Camera UiCamera;
         public static List<RaycastResult> raycastResults = new List<RaycastResult>();
 
         [SerializeField]
@@ -28,9 +29,13 @@ namespace UI.Inventory
         private void Start()
         {
             if (CurrentSystem == null)
+            {
                 CurrentSystem = EventSystem.current;
+                UiCamera = GetComponentInParent<Canvas>().worldCamera;
+            }
 
             initialHolder = GetComponentInParent<IItemHolder>();
+            
         }
 
         #region Interface Implementations
@@ -43,9 +48,9 @@ namespace UI.Inventory
             DraggedInstance = gameObject;
             _initialParent = transform.parent;
             _startPosition = transform.position;
-            _zDistanceToCamera = Mathf.Abs(_startPosition.z - Camera.main.transform.position.z);
+            _zDistanceToCamera = Mathf.Abs(_startPosition.z - UiCamera.transform.position.z);
 
-            _offsetToMouse = _startPosition - Camera.main.ScreenToWorldPoint(
+            _offsetToMouse = _startPosition - UiCamera.ScreenToWorldPoint(
                                  new Vector3(Input.mousePosition.x, Input.mousePosition.y, _zDistanceToCamera)
                              );
 
@@ -61,7 +66,7 @@ namespace UI.Inventory
             if (Input.touchCount > 1)
                 return;
 
-            transform.position = Camera.main.ScreenToWorldPoint(
+            transform.position = UiCamera.ScreenToWorldPoint(
                                      new Vector3(Input.mousePosition.x, Input.mousePosition.y, _zDistanceToCamera)
                                  ) + _offsetToMouse;
         }

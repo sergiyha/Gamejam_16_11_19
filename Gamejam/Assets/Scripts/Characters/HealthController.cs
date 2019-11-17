@@ -47,10 +47,4 @@ public class HealthController : MonoBehaviour
     {
         character.UiController.UpdateHealth(character.Stats[Stat.Health], character.InitialStats[Stat.Health]);
     }
-
-    [Button]
-    public void Test()
-    {
-        DoDamage(3);
-    }
 }
