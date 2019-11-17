@@ -28,8 +28,9 @@ public class ArtifactLoot : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
             koef += Time.deltaTime;
+            Debug.Log(koef);
         }
-        Destroy(gameObject,pickupTime);
+        Destroy(gameObject,pickupTime/7);
         
     }
 
