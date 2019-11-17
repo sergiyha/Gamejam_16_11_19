@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -48,8 +47,8 @@ public class PlayerController : MonoBehaviour
 
 	private void Start()
 	{
-		_meleeContainer = new UnitMovableContainer();
-		_rangeContainer = new UnitMovableContainer();
+		_meleeContainer = new UnitMovableContainer(this.transform);
+		_rangeContainer = new UnitMovableContainer(this.transform);
 
 		_meleeContainer.AddAgents(_meleAgents);
 		_meleeContainer.AddTargets(_meleAgentsPositions);
@@ -64,7 +63,7 @@ public class PlayerController : MonoBehaviour
 	{
 		FindDirection();
 		MoveAgents();
-		
+
 	}
 
 	public void AddNewUnit()
@@ -100,7 +99,7 @@ public class PlayerController : MonoBehaviour
 				MousePositionHit = raycastHit.point;
 				var mouseRayHit = raycastHit.point;
 				Debug.DrawLine(MousePositionHit, transform.position);
- 
+
 				//Debug.DrawRay(rayMouse.origin,mouseRayHit);
 
 				var mouse0Y = new Vector3(mouseRayHit.x, 0, mouseRayHit.z);
@@ -116,7 +115,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	
+
 
 	private void OnDrawGizmos()
 	{
@@ -157,14 +156,19 @@ public class PlayerController : MonoBehaviour
 	private List<Character> _meleEnemies = null;
 	private List<Character> _rangeEnemies = null;
 
-	public void OnStartMeleeAttack(List<Character> enemy)
+	public void OnStartMeleeAttack(List<CharacterAndDistance> enemy)
 	{
+	//	Debug.LogError(enemy);
 		_meleeContainer.SetEnemies(enemy);
+		if (enemy != null)
+			_meleeContainer.Unattach();
+		else
+			_meleeContainer.Attach();
 	}
 
-	public void OnStartRangeAttack(List<Character> enemy)
+	public void OnStartRangeAttack(List<CharacterAndDistance> enemy)
 	{
-	
+
 	}
 
 

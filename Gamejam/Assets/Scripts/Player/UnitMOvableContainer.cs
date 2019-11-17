@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,10 +11,18 @@ public class UnitMovableContainer
 		_localTargets = targets;
 	}
 
-	private List<Character> _enemies;
-	public void SetEnemies(List<Character> enemies)
+	private List<CharacterAndDistance> _enemies;
+
+	public UnitMovableContainer(Transform parent)
 	{
-		_enemies = enemies;
+		_parent = parent;
+	}
+
+	private readonly Transform _parent;
+
+	public void SetEnemies(List<CharacterAndDistance> enemiesData)
+	{
+		_enemies = enemiesData;
 	}
 
 	private Transform[] _localTargets;
@@ -28,16 +37,46 @@ public class UnitMovableContainer
 	{
 		if (_enemies != null && _enemies.Any())
 		{
-			for (var i = 0; i < _agents.Length; i++)
+			var minDistCharacter = _enemies.OrderBy(e => e.Distance).First();
+
+
+			foreach (var navMeshAgent in _agents)
 			{
-				_agents[i].destination = _enemies[0].transform.position;
+				if (minDistCharacter.Character)
+					navMeshAgent.destination = minDistCharacter.Character.transform.position;
 			}
 			return;
 		}
 
 		for (var i = 0; i < _agents.Length; i++)
-			{
-				_agents[i].destination = _localTargets[i].position;
-			}
+		{
+			_agents[i].destination = _localTargets[i].position;
+		}
 	}
+
+
+	public void Unattach()
+	{
+		foreach (var navMeshAgent in _agents)
+		{
+			if (navMeshAgent.transform.parent != null)
+				navMeshAgent.transform.parent = null;
+		}
+	}
+
+	public void Attach()
+	{
+
+		foreach (var navMeshAgent in _agents)
+		{
+			if (navMeshAgent.transform.parent != _parent)
+				navMeshAgent.transform.parent = _parent;
+		}
+	}
+}
+
+public class CharacterAndDistance
+{
+	public float Distance;
+	public Character Character;
 }

@@ -26,15 +26,24 @@ public class CameraController : MonoBehaviour
 		Debug.DrawRay(_playerController.transform.position, cameraDirection, Color.blue);
 
 		var playerPosition = _playerController.transform.position;
+
+		cameraDirection = LerpCameraInversion(cameraDirection.normalized);
 		_camera.transform.position = playerPosition + _cameraDif - cameraDirection.normalized * CameraInvesremultiplier;
+
+
 	}
 
 	private Vector3 _currentCameraInversion = Vector3.zero;
 	private float _lerp = 0;
 
-	//private void LerpCameraInversion(Vector3 futureInversion)
-	//{
-	//	_currentCameraInversion = Vector3.Lerp(_currentCameraInversion, futureInversion, _lerp);
-		
-	//}
+
+
+	private Vector3 LerpCameraInversion(Vector3 futureInversion)
+	{
+		float interpolation = 2f * Time.deltaTime;
+		_currentCameraInversion = Vector3.Lerp(_currentCameraInversion, futureInversion, interpolation);
+		return _currentCameraInversion;
+
+
+	}
 }

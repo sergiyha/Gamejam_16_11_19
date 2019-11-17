@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
@@ -35,23 +36,41 @@ public class PlayerBrain : MonoBehaviour
 			var meleDistance = _playerController.GetMeleeDistance();
 			var rangeDistance = _playerController.GetRangeDistance();
 
-			if (enemies.Any(e => Vector3.Distance(this.transform.position, e.transform.position) <= meleDistance))
-			{
-				_playerController.OnStartMeleeAttack(enemies);
-			}
-			else
-			{
-				_playerController.OnStartMeleeAttack(null);
-			}
 
-			if (enemies.Any(e => Vector3.Distance(this.transform.position, e.transform.position) <= rangeDistance))
+			List<CharacterAndDistance> CharMeleDist = null;
+			List<CharacterAndDistance> CharRangedDist = null;
+			var meleeTargets = enemies.Where(e => Vector3.Distance(this.transform.position, e.transform.position) <= meleDistance);
+			var rangedTargets = enemies.Where(e => Vector3.Distance(this.transform.position, e.transform.position) <= rangeDistance);
+			enemies.ForEach(e =>
 			{
-				_playerController.OnStartRangeAttack(enemies);
-			}
-			else
-			{
-				_playerController.OnStartRangeAttack(null);
-			}
+				var dist = Vector3.Distance(this.transform.position, e.transform.position);
+
+				if (dist <= meleDistance)
+				{
+					CharMeleDist = CharMeleDist ?? new List<CharacterAndDistance>();
+					CharMeleDist.Add(new CharacterAndDistance()
+					{
+						Character = e,
+						Distance = dist
+					});
+				}
+				else if (dist <= rangeDistance)
+				{
+					CharRangedDist = CharRangedDist ?? new List<CharacterAndDistance>();
+					CharRangedDist.Add(new CharacterAndDistance()
+					{
+						Character = e,
+						Distance = dist
+					});
+				}
+
+
+			});
+
+			_playerController.OnStartRangeAttack(CharRangedDist);
+			_playerController.OnStartMeleeAttack(CharMeleDist);
+
+
 		}
 	}
 }
