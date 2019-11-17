@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -42,13 +43,20 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField] private bool _meleeAttacking;
 
-	[SerializeField] private UnitMovableContainer _meleeContainer;
-	[SerializeField] private UnitMovableContainer _rangeContainer;
+	[SerializeField] private UnitContainer _meleeContainer;
+	[SerializeField] private RangedUnitContainer _rangeContainer;
+
+
+
+
 
 	private void Start()
 	{
-		_meleeContainer = new UnitMovableContainer(this.transform);
-		_rangeContainer = new UnitMovableContainer(this.transform);
+		var units = Character.Characters[Character.CharType.Player];
+		var ranged = Character.Characters[Character.CharType.Player].Where(u => u.IsRanged()).ToList();
+		var melee = Character.Characters[Character.CharType.Player].Where(u => !u.IsRanged()).ToList();
+		_meleeContainer = new UnitContainer(this.transform, melee);
+		_rangeContainer = new RangedUnitContainer(this.transform, ranged);
 
 		_meleeContainer.AddAgents(_meleAgents);
 		_meleeContainer.AddTargets(_meleAgentsPositions);
@@ -158,7 +166,7 @@ public class PlayerController : MonoBehaviour
 
 	public void OnStartMeleeAttack(List<CharacterAndDistance> enemy)
 	{
-	//	Debug.LogError(enemy);
+		//	Debug.LogError(enemy);
 		_meleeContainer.SetEnemies(enemy);
 		if (enemy != null)
 			_meleeContainer.Unattach();
@@ -166,9 +174,12 @@ public class PlayerController : MonoBehaviour
 			_meleeContainer.Attach();
 	}
 
+
 	public void OnStartRangeAttack(List<CharacterAndDistance> enemy)
 	{
+		_rangeContainer.SetEnemies(enemy);
 
+		_rangeContainer.TryAttack();
 	}
 
 

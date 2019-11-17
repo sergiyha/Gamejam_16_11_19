@@ -21,6 +21,7 @@ public class Character : MonoBehaviour
 	public UiController UiController;
 	public ArctifactsController ArctifactsController;
 	public AudioSource AudioSource;
+	public PlayerAimModule AimingModule;
 
 	public enum CharType
 	{
@@ -35,6 +36,22 @@ public class Character : MonoBehaviour
 
 	}
 
+	public bool IsRanged()
+	{
+		//Debug.LogError(this.gameObject.name);
+		return WeaponController.Weapon.Range > 3;
+	}
+
+	public void Awake()
+	{
+		StatusEffectsController = GetComponent<StatusEffectsController>();
+		AudioSource = GetComponent<AudioSource>();
+		WeaponController = GetComponent<WeaponController>();
+		HealthController = GetComponent<HealthController>();
+		ArctifactsController = GetComponent<ArctifactsController>();
+		AimingModule = GetComponent<PlayerAimModule>();
+	}
+
 	private void OnEnable()
 	{
 		InitialStats = CreatureStats.Clone(Stats);
@@ -47,6 +64,7 @@ public class Character : MonoBehaviour
 		WeaponController = GetComponent<WeaponController>();
 		HealthController = GetComponent<HealthController>();
 		ArctifactsController = GetComponent<ArctifactsController>();
+		AimingModule = GetComponent<PlayerAimModule>();
 		//WeaponController.AddWeapon(debugWeapon);
 	}
 }

@@ -4,18 +4,25 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class UnitMovableContainer
+public class UnitContainer 
 {
 	public void AddTargets(Transform[] targets)
 	{
 		_localTargets = targets;
 	}
 
-	private List<CharacterAndDistance> _enemies;
+	protected List<CharacterAndDistance> _enemies;
+	protected List<Character> _characters;
 
-	public UnitMovableContainer(Transform parent)
+	public void UpdateChars(List<Character> chars)
+	{
+		_characters = chars;
+	}
+
+	public UnitContainer(Transform parent, List<Character> characters )
 	{
 		_parent = parent;
+		_characters = characters;
 	}
 
 	private readonly Transform _parent;
@@ -25,15 +32,20 @@ public class UnitMovableContainer
 		_enemies = enemiesData;
 	}
 
-	private Transform[] _localTargets;
-	private NavMeshAgent[] _agents;
+	protected Transform[] _localTargets;
+	protected NavMeshAgent[] _agents;
+
+	public NavMeshAgent[] GetAgents()
+	{
+		return _agents;
+	}
 
 	public void AddAgents(NavMeshAgent[] agents)
 	{
 		_agents = agents;
 	}
 
-	public void Move()
+	public virtual void Move()
 	{
 		if (_enemies != null && _enemies.Any())
 		{
