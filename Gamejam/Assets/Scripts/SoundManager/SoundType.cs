@@ -29,5 +29,6 @@ namespace FPSTestProject.Helpers.Runtime.SoundManager
 
         Bow = 1500,
         Staff = 1600,
+        PickUp = 1700,
     }
 }

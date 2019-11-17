@@ -10,12 +10,17 @@ namespace Assets.Scripts.UI.Inventory.ConcreteInv
         
         public override bool AddItem(DraggableItem item)
         {
-            ((ArtifactItem) item).IsLocked = true;
-            OnAddArtifact((ArtifactItem) item);
-            return base.AddItem(item);
+            if (((ArtifactItem) item).Item is UsableArtifact)
+            {
+                ((ArtifactItem) item).IsLocked = true;
+                OnAddArtifact((ArtifactItem) item);
+                return base.AddItem(item);
+            }
+
+            return false;
         }
 
-        public void Set(List<ArtifactBase> artifacts)
+        public void Set(List<UsableArtifact> artifacts)
         {
             for (int i = 0; i < items.Count; i++)
             {
@@ -28,6 +33,7 @@ namespace Assets.Scripts.UI.Inventory.ConcreteInv
             {
                 var item = Instantiate(prefab.gameObject, holder).GetComponent<ArtifactItem>();
                 item.Init(artifact, dragContainer);
+                item.IsLocked = true;
                 items.Add(item);
             }
         }

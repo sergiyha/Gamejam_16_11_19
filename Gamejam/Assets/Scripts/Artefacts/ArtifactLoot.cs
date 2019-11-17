@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FPSTestProject.Helpers.Runtime.SoundManager;
 using UnityEngine;
 
 public class ArtifactLoot : MonoBehaviour
@@ -38,6 +39,8 @@ public class ArtifactLoot : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GetComponent<Collider>().enabled = false;
+            SoundManager.Instance.PlaySFX(SoundManagerDatabase.GetRandomClip(SoundType.PickUp), transform.position, 1f);
             Character character = other.GetComponent<Character>();
             if (character.CharacterType == Character.CharType.Player)
             {

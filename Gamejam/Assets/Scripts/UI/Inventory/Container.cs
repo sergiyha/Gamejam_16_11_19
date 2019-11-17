@@ -25,6 +25,7 @@ public class Container : MonoBehaviour, IItemHolder
             if (items.Count >= maxCount)
                 return false;
 
+        items.Add(item);
         item.transform.SetParent(holder);
         return true;
     }

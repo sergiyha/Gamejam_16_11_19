@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArctifactsController : MonoBehaviour
 {
     public int capacity;
-    public List<ArtifactBase> Artifacts;
+    public List<UsableArtifact> Artifacts;
     public float atackspeedMultipl =1f;//==1f if normal
     public bool UseAllowed;
     
@@ -20,9 +20,9 @@ public class ArctifactsController : MonoBehaviour
     }
 
     
-    public void AddArtifact(ArtifactScrObj artifact)
+    public void AddArtifact(UsableArtifact artifact)
     {
-        
+        Artifacts.Add(artifact);
       /*  if (Weapon != null)
         {
             Weapon.DisableArtifact();
