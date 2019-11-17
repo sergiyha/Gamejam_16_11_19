@@ -125,6 +125,7 @@
               </e>
               <e p="UsableArtifact.cs" t="Include" />
             </e>
+            <e p="ShotController.cs" t="Include" />
             <e p="Weapons" t="Include">
               <e p="AxeScriptableObj.cs" t="Include" />
               <e p="BowScriptableObj.cs" t="Include" />
@@ -155,8 +156,8 @@
               <e p="BleedEffectData.cs" t="Include" />
               <e p="Haste.cs" t="Include" />
               <e p="HasteEffectData.cs" t="Include" />
-              <e p="HealingData.cs" t="Include" />
-              <e p="HealOverTime.cs" t="Include" />
+              <e p="Healing.cs" t="Include" />
+              <e p="HealingEffectData.cs" t="Include" />
               <e p="Rage.cs" t="Include" />
               <e p="RageEffectData.cs" t="Include" />
               <e p="Slow.cs" t="Include" />
@@ -173,6 +174,7 @@
             <e p="MathParabola.cs" t="Include" />
             <e p="ParabolaConstrain.cs" t="Include" />
             <e p="ParabolaController.cs" t="Include" />
+            <e p="PatabolaTest.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
             <e p="PlayerController.cs" t="Include" />

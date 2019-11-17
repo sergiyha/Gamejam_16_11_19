@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "HealingEffect", menuName = "Effects/Healing")]
-public class HealingData : BaseEffectData
+public class HealingEffectData : BaseEffectData
 {
     public float tickTime;
     public float totalTime;

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealOverTime : StatusEffectBase
+public class Healing : StatusEffectBase
 {
-    private HealingData Data;
+    private HealingEffectData Data;
 
-    public HealOverTime(BaseEffectData data, Character character) : base(data, character)
+    public Healing(BaseEffectData data, Character character) : base(data, character)
     {
-        Data = (HealingData) data;
+        Data = (HealingEffectData) data;
 
         TotalTime = Data.totalTime;
         tickTime = Data.tickTime;
