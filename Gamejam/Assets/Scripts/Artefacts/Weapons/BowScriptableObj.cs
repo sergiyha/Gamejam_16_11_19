@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class BowScriptableObj : WeaponScriptableObject
 {
+    public ParticleSystem ps;
     public override void Action()
     {
         int dmg = Random.Range(MinDamage, MaxDamage);

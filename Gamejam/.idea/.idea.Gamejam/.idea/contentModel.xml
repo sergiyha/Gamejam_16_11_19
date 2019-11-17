@@ -100,7 +100,9 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="AI" t="Include">
+            <e p="AimController.cs" t="Include" />
             <e p="BotBrain.cs" t="Include" />
+            <e p="PlayerAimModule.cs" t="Include" />
             <e p="PlayerBrain.cs" t="Include" />
           </e>
           <e p="Animation" t="Include">
@@ -151,6 +153,8 @@
               <e p="HasteEffectData.cs" t="Include" />
               <e p="Rage.cs" t="Include" />
               <e p="RageEffectData.cs" t="Include" />
+              <e p="Slow.cs" t="Include" />
+              <e p="SlowEffectData.cs" t="Include" />
             </e>
             <e p="WeaponController.cs" t="Include" />
           </e>
@@ -159,15 +163,47 @@
             <e p="Inventory.cs" t="Include" />
             <e p="SquadInventory.cs" t="Include" />
           </e>
-          <e p="PlayerController.cs" t="Include" />
+          <e p="Mathf" t="Include">
+            <e p="MathParabola.cs" t="Include" />
+            <e p="ParabolaConstrain.cs" t="Include" />
+            <e p="ParabolaController.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="PlayerController.cs" t="Include" />
+            <e p="RangedUnitContainer.cs" t="Include" />
+            <e p="UnitContainer.cs" t="Include" />
+          </e>
+          <e p="SoundManager" t="Include">
+            <e p="ObjectPool" t="Include">
+              <e p="IPoolable.cs" t="Include" />
+              <e p="ObjectPool.cs" t="Include" />
+              <e p="PoolInitializer.cs" t="Include" />
+            </e>
+            <e p="Pool" t="Include">
+              <e p="AudioSourcePool.cs" t="Include" />
+              <e p="PooledAudioSource.cs" t="Include" />
+            </e>
+            <e p="SoundManager.cs" t="Include" />
+            <e p="SoundManagerDatabase.cs" t="Include" />
+            <e p="SoundType.cs" t="Include" />
+          </e>
           <e p="UI" t="Include">
+            <e p="DetailPanel" t="Include">
+              <e p="DetailPanel.cs" t="Include" />
+            </e>
             <e p="Editor" t="Include">
               <e p="UiHelper.cs" t="Include" />
             </e>
             <e p="Inventory" t="Include">
+              <e p="ConcreteInv" t="Include">
+                <e p="ArtifactItem.cs" t="Include" />
+                <e p="ArtifactsContainer.cs" t="Include" />
+                <e p="IItemHolder.cs" t="Include" />
+                <e p="SquadInventoryUI.cs" t="Include" />
+                <e p="WeaponSlot.cs" t="Include" />
+              </e>
               <e p="Container.cs" t="Include" />
               <e p="DraggableItem.cs" t="Include" />
-              <e p="IItemHolder.cs" t="Include" />
               <e p="InventorySlot.cs" t="Include" />
             </e>
             <e p="PlayerHudController.cs" t="Include" />

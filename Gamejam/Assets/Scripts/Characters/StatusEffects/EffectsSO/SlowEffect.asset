@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 793535289ba134145885d6014b1f1faa, type: 3}
-  m_Name: RageEffect
+  m_Script: {fileID: 11500000, guid: 9339e62a00ed65a4b86f8925adcef9a5, type: 3}
+  m_Name: SlowEffect
   m_EditorClassIdentifier: 
-  imp: Rage
-  statusEffectIcon: {fileID: 21300000, guid: bf51faa2b95f2594fafcf286050a193e, type: 3}
-  tickTime: 5
-  totalTime: 5
-  additionaAS: 0.2
+  imp: Slow
+  statusEffectIcon: {fileID: 0}
+  tickTime: 3
+  totalTime: 3
+  speedMultiplier: 0.7

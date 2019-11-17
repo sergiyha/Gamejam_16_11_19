@@ -11,6 +11,7 @@ public class HasteBootsScriptable : UsableArtifact
 
     public override void Action()
     {
+        Debug.Log("Use haste boots");
         base.Action();
         foreach (var target in targets)
         {

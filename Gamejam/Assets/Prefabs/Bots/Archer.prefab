@@ -1850,7 +1850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capasity: 0
   artifacts: []
-  Weapon: {fileID: 11400000, guid: 965d6a3fd8b01a943b5362b0cbd01c54, type: 2}
+  Weapon: {fileID: 11400000, guid: 28b80d73129ee814b97a33245dffb677, type: 2}
 --- !u!1 &5669609890758226404
 GameObject:
   m_ObjectHideFlags: 0
@@ -2628,11 +2628,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5669609890757799362}
     m_Modifications:
-    - target: {fileID: 3429938844037793603, guid: ad9e04114a0bb2f4987c589265c3f564,
-        type: 3}
-      propertyPath: m_Name
-      value: Indicators
-      objectReference: {fileID: 0}
     - target: {fileID: 3637316178984367644, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2687,6 +2682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429938844037793603, guid: ad9e04114a0bb2f4987c589265c3f564,
+        type: 3}
+      propertyPath: m_Name
+      value: Indicators
       objectReference: {fileID: 0}
     - target: {fileID: 613614368959678940, guid: ad9e04114a0bb2f4987c589265c3f564,
         type: 3}

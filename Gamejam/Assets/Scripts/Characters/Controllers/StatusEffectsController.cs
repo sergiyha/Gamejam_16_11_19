@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class StatusEffectsController : MonoBehaviour
 {
+    public GameObject hasteFX;
+    public GameObject rageFx;
     [SerializeField]
     private List<StatusEffectBase> StatusEffects = new List<StatusEffectBase>();
 
