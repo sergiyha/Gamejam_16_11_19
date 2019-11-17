@@ -7,7 +7,7 @@ public class ArtifactLoot : MonoBehaviour
 {
     public ArtifactBase ArtifactScriptable;
     private ParticleSystem[] ps;
-    public float pickupTime = 2f;
+    public float pickupTime = 1.5f;
     private Light[] spotlight;
 
     private void Awake()
@@ -20,7 +20,7 @@ public class ArtifactLoot : MonoBehaviour
     {
         var koef = 0f;
         var originalInt = spotlight[0].intensity;
-        while (koef<pickupTime)
+        while (koef<pickupTime*0.7f)
         {
             foreach (var light in spotlight)
             {
@@ -29,6 +29,7 @@ public class ArtifactLoot : MonoBehaviour
             yield return new WaitForEndOfFrame();
             koef += Time.deltaTime;
         }
+        Destroy(gameObject,pickupTime);
         
     }
 
@@ -48,9 +49,9 @@ public class ArtifactLoot : MonoBehaviour
                 StartCoroutine(ChangeIntensity());
                 main.simulationSpeed *= 2f;
                 var main2 = ps[1].main;
-                main2.gravityModifier = new ParticleSystem.MinMaxCurve(-10f);
+                main2.gravityModifier = new ParticleSystem.MinMaxCurve(-15f);
             }
-            Destroy(gameObject,pickupTime);
+            
         }
     }
 }
