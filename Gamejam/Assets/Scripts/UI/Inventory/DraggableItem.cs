@@ -15,6 +15,8 @@ namespace UI.Inventory
         [SerializeField]
         protected Transform _contriner;
 
+        public bool IsLocked;
+
         private Vector3 _startPosition;
         private Vector3 _offsetToMouse;
         private float _zDistanceToCamera;
@@ -35,6 +37,9 @@ namespace UI.Inventory
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if(IsLocked)
+                return;
+
             DraggedInstance = gameObject;
             _initialParent = transform.parent;
             _startPosition = transform.position;
@@ -50,6 +55,9 @@ namespace UI.Inventory
 
         public void OnDrag(PointerEventData eventData)
         {
+            if (IsLocked)
+                return;
+
             if (Input.touchCount > 1)
                 return;
 
@@ -60,6 +68,9 @@ namespace UI.Inventory
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            if (IsLocked)
+                return;
+
             CurrentSystem.RaycastAll(eventData, raycastResults);
 
             foreach (RaycastResult result in raycastResults)

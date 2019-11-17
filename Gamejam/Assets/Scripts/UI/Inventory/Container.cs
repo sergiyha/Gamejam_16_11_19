@@ -15,7 +15,7 @@ public class Container : MonoBehaviour, IItemHolder
 
     public IEnumerable<DraggableItem> Items => items;
 
-    public bool AddItem(DraggableItem item)
+    public virtual bool AddItem(DraggableItem item)
     {
         if(maxCount > 0)
             if (items.Count >= maxCount)
@@ -25,7 +25,7 @@ public class Container : MonoBehaviour, IItemHolder
         return true;
     }
 
-    public void RemoveItem(DraggableItem item)
+    public virtual void RemoveItem(DraggableItem item)
     {
         if (items.Contains(item))
             items.Remove(item);
