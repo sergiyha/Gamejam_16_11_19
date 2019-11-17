@@ -35,7 +35,7 @@ namespace UI.DetailPanel
 
         private void ArtifactsContainerOnOnAddArtifact(ArtifactItem obj)
         {
-            currentCharacter.ArctifactsController.AddArtifact((ArtifactScrObj) obj.Item);
+            currentCharacter.ArctifactsController.AddArtifact((UsableArtifact) obj.Item);
         }
 
         private void WeaponSlotOnOnRemoveItem(ArtifactItem obj)

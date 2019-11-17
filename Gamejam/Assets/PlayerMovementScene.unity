@@ -2228,7 +2228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6ef68d0da847edb9a276fa9898834e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 2967489136832178919, guid: 8a45c2a5f5c3fe642beff5fc996846df, type: 3}
   dragContainer: {fileID: 0}
   holder: {fileID: 1694659945}
   maxCount: -1
