@@ -12,7 +12,7 @@ public class CharacterInventory : Inventory
     private Character character;
 
 
-    private void Start()
+    private void Awake()
     {
         character = GetComponent<Character>();
         if(Weapon!=null)
